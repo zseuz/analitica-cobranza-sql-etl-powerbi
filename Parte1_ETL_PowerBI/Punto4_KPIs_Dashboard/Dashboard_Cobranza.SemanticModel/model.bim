@@ -1,0 +1,1396 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "es-ES",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "es-CO",
+    "tables": [
+      {
+        "name": "dim_fecha",
+        "columns": [
+          {
+            "name": "fecha_id",
+            "dataType": "int64",
+            "sourceColumn": "fecha_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy",
+            "isKey": true
+          },
+          {
+            "name": "anio",
+            "dataType": "int64",
+            "sourceColumn": "anio",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mes",
+            "dataType": "int64",
+            "sourceColumn": "mes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "nombre_mes",
+            "dataType": "string",
+            "sourceColumn": "nombre_mes",
+            "summarizeBy": "none",
+            "sortByColumn": "mes"
+          },
+          {
+            "name": "periodo",
+            "dataType": "int64",
+            "sourceColumn": "periodo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dia",
+            "dataType": "int64",
+            "sourceColumn": "dia",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dia_semana",
+            "dataType": "int64",
+            "sourceColumn": "dia_semana",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "nombre_dia",
+            "dataType": "string",
+            "sourceColumn": "nombre_dia",
+            "summarizeBy": "none",
+            "sortByColumn": "dia_semana"
+          },
+          {
+            "name": "es_fin_semana",
+            "dataType": "boolean",
+            "sourceColumn": "es_fin_semana",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fecha_mes",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_mes",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_fecha",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"dim_fecha\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ],
+        "dataCategory": "Time"
+      },
+      {
+        "name": "dim_credito",
+        "columns": [
+          {
+            "name": "credito_id",
+            "dataType": "int64",
+            "sourceColumn": "credito_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "periodo_ultima_foto",
+            "dataType": "int64",
+            "sourceColumn": "periodo_ultima_foto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tipo_producto",
+            "dataType": "int64",
+            "sourceColumn": "tipo_producto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estado_cartera",
+            "dataType": "string",
+            "sourceColumn": "estado_cartera",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dias_mora",
+            "dataType": "int64",
+            "sourceColumn": "dias_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tramo_mora",
+            "dataType": "string",
+            "sourceColumn": "tramo_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "saldo_capital",
+            "dataType": "decimal",
+            "sourceColumn": "saldo_capital",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "valor_cuota_estimada",
+            "dataType": "decimal",
+            "sourceColumn": "valor_cuota_estimada",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "celular",
+            "dataType": "string",
+            "sourceColumn": "celular",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tiene_sms",
+            "dataType": "boolean",
+            "sourceColumn": "tiene_sms",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tiene_gestion",
+            "dataType": "boolean",
+            "sourceColumn": "tiene_gestion",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tiene_recaudo",
+            "dataType": "boolean",
+            "sourceColumn": "tiene_recaudo",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_credito",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"dim_credito\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_gestiones",
+        "columns": [
+          {
+            "name": "gestion_key",
+            "dataType": "string",
+            "sourceColumn": "gestion_key",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fuente",
+            "dataType": "string",
+            "sourceColumn": "fuente",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "canal",
+            "dataType": "string",
+            "sourceColumn": "canal",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "credito_id",
+            "dataType": "int64",
+            "sourceColumn": "credito_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha_id",
+            "dataType": "int64",
+            "sourceColumn": "fecha_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "fecha_hora",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_hora",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy hh:nn"
+          },
+          {
+            "name": "hora",
+            "dataType": "int64",
+            "sourceColumn": "hora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "resultado",
+            "dataType": "string",
+            "sourceColumn": "resultado",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "categoria",
+            "dataType": "string",
+            "sourceColumn": "categoria",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_intento_contacto",
+            "dataType": "boolean",
+            "sourceColumn": "es_intento_contacto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_contacto",
+            "dataType": "boolean",
+            "sourceColumn": "es_contacto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_contacto_directo",
+            "dataType": "boolean",
+            "sourceColumn": "es_contacto_directo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_promesa",
+            "dataType": "boolean",
+            "sourceColumn": "es_promesa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valor_promesa",
+            "dataType": "decimal",
+            "sourceColumn": "valor_promesa",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "fecha_promesa",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_promesa",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "operador",
+            "dataType": "string",
+            "sourceColumn": "operador",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_entregado",
+            "dataType": "boolean",
+            "sourceColumn": "es_entregado",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "numero_mensajes",
+            "dataType": "int64",
+            "sourceColumn": "numero_mensajes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_clics",
+            "dataType": "int64",
+            "sourceColumn": "total_clics",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "periodo_foto",
+            "dataType": "int64",
+            "sourceColumn": "periodo_foto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "foto_mismo_mes",
+            "dataType": "boolean",
+            "sourceColumn": "foto_mismo_mes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tipo_producto",
+            "dataType": "int64",
+            "sourceColumn": "tipo_producto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estado_cartera",
+            "dataType": "string",
+            "sourceColumn": "estado_cartera",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dias_mora",
+            "dataType": "int64",
+            "sourceColumn": "dias_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tramo_mora",
+            "dataType": "string",
+            "sourceColumn": "tramo_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "saldo_capital",
+            "dataType": "decimal",
+            "sourceColumn": "saldo_capital",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_gestiones",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"fact_gestiones\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_promesas",
+        "columns": [
+          {
+            "name": "gestion_id",
+            "dataType": "int64",
+            "sourceColumn": "gestion_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "credito_id",
+            "dataType": "int64",
+            "sourceColumn": "credito_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha_gestion",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_gestion",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "fecha_gestion_id",
+            "dataType": "int64",
+            "sourceColumn": "fecha_gestion_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha_promesa",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_promesa",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "fecha_promesa_id",
+            "dataType": "int64",
+            "sourceColumn": "fecha_promesa_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha_limite",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_limite",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "tipificacion",
+            "dataType": "string",
+            "sourceColumn": "tipificacion",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valor_promesa",
+            "dataType": "decimal",
+            "sourceColumn": "valor_promesa",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "valor_pagado",
+            "dataType": "decimal",
+            "sourceColumn": "valor_pagado",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "fecha_primer_pago",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_primer_pago",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "porc_cumplimiento",
+            "dataType": "decimal",
+            "sourceColumn": "porc_cumplimiento",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "estado_promesa",
+            "dataType": "string",
+            "sourceColumn": "estado_promesa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_vencida",
+            "dataType": "boolean",
+            "sourceColumn": "es_vencida",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_cumplida",
+            "dataType": "boolean",
+            "sourceColumn": "es_cumplida",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dias_mora",
+            "dataType": "int64",
+            "sourceColumn": "dias_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tramo_mora",
+            "dataType": "string",
+            "sourceColumn": "tramo_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estado_cartera",
+            "dataType": "string",
+            "sourceColumn": "estado_cartera",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fecha_corte",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_corte",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_promesas",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"fact_promesas\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_cartera_mes",
+        "columns": [
+          {
+            "name": "credito_id",
+            "dataType": "int64",
+            "sourceColumn": "credito_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "periodo",
+            "dataType": "int64",
+            "sourceColumn": "periodo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fecha_mes",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_mes",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "tipo_producto",
+            "dataType": "int64",
+            "sourceColumn": "tipo_producto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estado_cartera",
+            "dataType": "string",
+            "sourceColumn": "estado_cartera",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dias_mora",
+            "dataType": "int64",
+            "sourceColumn": "dias_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tramo_mora",
+            "dataType": "string",
+            "sourceColumn": "tramo_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_en_mora",
+            "dataType": "boolean",
+            "sourceColumn": "es_en_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "saldo_capital",
+            "dataType": "decimal",
+            "sourceColumn": "saldo_capital",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "valor_cuota_estimada",
+            "dataType": "decimal",
+            "sourceColumn": "valor_cuota_estimada",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "gestiones",
+            "dataType": "int64",
+            "sourceColumn": "gestiones",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "intentos_contacto",
+            "dataType": "int64",
+            "sourceColumn": "intentos_contacto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "contactos",
+            "dataType": "int64",
+            "sourceColumn": "contactos",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "contactos_directos",
+            "dataType": "int64",
+            "sourceColumn": "contactos_directos",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "promesas",
+            "dataType": "int64",
+            "sourceColumn": "promesas",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valor_prometido",
+            "dataType": "decimal",
+            "sourceColumn": "valor_prometido",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "sms",
+            "dataType": "int64",
+            "sourceColumn": "sms",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_gestionado",
+            "dataType": "boolean",
+            "sourceColumn": "es_gestionado",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_contactado",
+            "dataType": "boolean",
+            "sourceColumn": "es_contactado",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recaudo_efectivo",
+            "dataType": "decimal",
+            "sourceColumn": "recaudo_efectivo",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "tiene_pago",
+            "dataType": "boolean",
+            "sourceColumn": "tiene_pago",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_cartera_mes",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"fact_cartera_mes\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_recaudo",
+        "columns": [
+          {
+            "name": "recaudo_id",
+            "dataType": "int64",
+            "sourceColumn": "recaudo_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "credito_id",
+            "dataType": "int64",
+            "sourceColumn": "credito_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha_id",
+            "dataType": "int64",
+            "sourceColumn": "fecha_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "fecha",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "origen_pago",
+            "dataType": "string",
+            "sourceColumn": "origen_pago",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_recaudo_efectivo",
+            "dataType": "boolean",
+            "sourceColumn": "es_recaudo_efectivo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "es_reversion",
+            "dataType": "boolean",
+            "sourceColumn": "es_reversion",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valor_total_pago",
+            "dataType": "decimal",
+            "sourceColumn": "valor_total_pago",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "valor_pago_capital",
+            "dataType": "decimal",
+            "sourceColumn": "valor_pago_capital",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "valor_pago_intereses_mora",
+            "dataType": "decimal",
+            "sourceColumn": "valor_pago_intereses_mora",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "tuvo_gestion_previa_30d",
+            "dataType": "boolean",
+            "sourceColumn": "tuvo_gestion_previa_30d",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_recaudo",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"fact_recaudo\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "resumen_ia",
+        "columns": [
+          {
+            "name": "resumen_id",
+            "dataType": "int64",
+            "sourceColumn": "resumen_id",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "generado_en",
+            "dataType": "dateTime",
+            "sourceColumn": "generado_en",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy hh:nn"
+          },
+          {
+            "name": "modelo",
+            "dataType": "string",
+            "sourceColumn": "modelo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fecha_corte",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_corte",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "seccion",
+            "dataType": "string",
+            "sourceColumn": "seccion",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "orden_seccion",
+            "dataType": "int64",
+            "sourceColumn": "orden_seccion",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "orden",
+            "dataType": "int64",
+            "sourceColumn": "orden",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "orden_global",
+            "dataType": "int64",
+            "sourceColumn": "orden_global",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "etiqueta",
+            "dataType": "string",
+            "sourceColumn": "etiqueta",
+            "summarizeBy": "none",
+            "sortByColumn": "orden_global"
+          },
+          {
+            "name": "titulo",
+            "dataType": "string",
+            "sourceColumn": "titulo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "texto",
+            "dataType": "string",
+            "sourceColumn": "texto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severidad",
+            "dataType": "string",
+            "sourceColumn": "severidad",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "resumen_ia",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"mart\",Item=\"resumen_ia\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "vw_promesas_incumplidas_3d",
+        "columns": [
+          {
+            "name": "credito",
+            "dataType": "int64",
+            "sourceColumn": "credito",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "telefono_celular",
+            "dataType": "string",
+            "sourceColumn": "telefono_celular",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valor_cuota",
+            "dataType": "decimal",
+            "sourceColumn": "valor_cuota",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "numero_dias_mora",
+            "dataType": "int64",
+            "sourceColumn": "numero_dias_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estado_credito",
+            "dataType": "string",
+            "sourceColumn": "estado_credito",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dia_promesa",
+            "dataType": "dateTime",
+            "sourceColumn": "dia_promesa",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "fecha_hora_ejecucion",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_hora_ejecucion",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_promesas_incumplidas_3d",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"seg\",Item=\"vw_promesas_incumplidas_3d\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "vw_mora60_incumplidas_hoy",
+        "columns": [
+          {
+            "name": "credito",
+            "dataType": "int64",
+            "sourceColumn": "credito",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "telefono_celular",
+            "dataType": "string",
+            "sourceColumn": "telefono_celular",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valor_cuota",
+            "dataType": "decimal",
+            "sourceColumn": "valor_cuota",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "numero_dias_mora",
+            "dataType": "int64",
+            "sourceColumn": "numero_dias_mora",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estado_credito",
+            "dataType": "string",
+            "sourceColumn": "estado_credito",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dia_promesa",
+            "dataType": "dateTime",
+            "sourceColumn": "dia_promesa",
+            "summarizeBy": "none",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "fecha_hora_ejecucion",
+            "dataType": "dateTime",
+            "sourceColumn": "fecha_hora_ejecucion",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_mora60_incumplidas_hoy",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Origen = Sql.Database(ServidorSQL, BaseDatos),",
+                "    Tabla = Origen{[Schema=\"seg\",Item=\"vw_mora60_incumplidas_hoy\"]}[Data]",
+                "in",
+                "    Tabla"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Medidas",
+        "columns": [
+          {
+            "name": "Medida",
+            "dataType": "string",
+            "isHidden": true,
+            "type": "calculatedTableColumn",
+            "sourceColumn": "[Medida]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Medidas",
+            "mode": "import",
+            "source": {
+              "type": "calculated",
+              "expression": "ROW(\"Medida\", BLANK())"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Gestiones (todas las fuentes)",
+            "expression": "COUNTROWS(fact_gestiones)",
+            "formatString": "#,0",
+            "displayFolder": "1. Gestión",
+            "description": "Gestiones de cobranza (jun–ago 2025) + SMS del Reporte1 (jul-2022). Solo para ver el volumen por canal."
+          },
+          {
+            "name": "Gestiones de cobranza",
+            "expression": "CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[fuente] = \"Gestiones\")",
+            "formatString": "#,0",
+            "displayFolder": "1. Gestión",
+            "description": "Gestiones de cobranza de la Base 4 (sin SMS)."
+          },
+          {
+            "name": "Créditos con gestión de cobranza",
+            "expression": "CALCULATE(DISTINCTCOUNT(fact_gestiones[credito_id]), fact_gestiones[fuente] = \"Gestiones\")",
+            "formatString": "#,0",
+            "displayFolder": "1. Gestión",
+            "description": "Créditos distintos con al menos una gestión de cobranza."
+          },
+          {
+            "name": "Intensidad de gestión",
+            "expression": "DIVIDE([Gestiones de cobranza], [Créditos con gestión de cobranza])",
+            "formatString": "#,0.0",
+            "displayFolder": "1. Gestión",
+            "description": "Gestiones de cobranza promedio por crédito gestionado."
+          },
+          {
+            "name": "Créditos en cartera",
+            "expression": "DISTINCTCOUNT(dim_credito[credito_id])",
+            "formatString": "#,0",
+            "displayFolder": "1. Gestión",
+            "description": "Créditos del portafolio (Comité)."
+          },
+          {
+            "name": "Cobertura de cartera",
+            "expression": "DIVIDE([Créditos con gestión de cobranza], [Créditos en cartera])",
+            "formatString": "0.0%",
+            "displayFolder": "1. Gestión",
+            "description": "% de la cartera que recibió al menos una gestión de cobranza."
+          },
+          {
+            "name": "Cobertura cartera en mora",
+            "expression": "DIVIDE(CALCULATE([Créditos con gestión de cobranza], dim_credito[dias_mora] > 0), CALCULATE([Créditos en cartera], dim_credito[dias_mora] > 0))",
+            "formatString": "0.0%",
+            "displayFolder": "1. Gestión",
+            "description": "% de los créditos en mora que recibieron gestión de cobranza."
+          },
+          {
+            "name": "Intentos de contacto",
+            "expression": "CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[es_intento_contacto] = TRUE())",
+            "formatString": "#,0",
+            "displayFolder": "2. Contacto",
+            "description": "Gestiones telefónicas (denominador de contactabilidad)."
+          },
+          {
+            "name": "Contactos",
+            "expression": "CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[es_contacto] = TRUE())",
+            "formatString": "#,0",
+            "displayFolder": "2. Contacto",
+            "description": "Intentos en los que se habló con alguien (titular o tercero)."
+          },
+          {
+            "name": "Contactos directos",
+            "expression": "CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[es_contacto_directo] = TRUE())",
+            "formatString": "#,0",
+            "displayFolder": "2. Contacto",
+            "description": "Intentos en los que se habló con el titular."
+          },
+          {
+            "name": "Tasa de contactabilidad",
+            "expression": "DIVIDE([Contactos], [Intentos de contacto])",
+            "formatString": "0.0%",
+            "displayFolder": "2. Contacto",
+            "description": "Contactos / intentos de contacto."
+          },
+          {
+            "name": "Tasa de contacto directo",
+            "expression": "DIVIDE([Contactos directos], [Intentos de contacto])",
+            "formatString": "0.0%",
+            "displayFolder": "2. Contacto",
+            "description": "Contactos con el titular / intentos de contacto."
+          },
+          {
+            "name": "Promesas generadas",
+            "expression": "CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[es_promesa] = TRUE())",
+            "formatString": "#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Gestiones que terminaron en promesa de pago (por fecha de gestión)."
+          },
+          {
+            "name": "Tasa PTP",
+            "expression": "DIVIDE([Promesas generadas], [Contactos directos])",
+            "formatString": "0.0%",
+            "displayFolder": "3. Promesas",
+            "description": "Promise to Pay: promesas / contactos directos."
+          },
+          {
+            "name": "Promesas",
+            "expression": "COUNTROWS(fact_promesas)",
+            "formatString": "#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Promesas (por fecha prometida)."
+          },
+          {
+            "name": "Promesas vencidas",
+            "expression": "CALCULATE([Promesas], fact_promesas[es_vencida] = TRUE())",
+            "formatString": "#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Promesas cuya fecha límite ya pasó a la fecha de corte."
+          },
+          {
+            "name": "Promesas cumplidas",
+            "expression": "CALCULATE([Promesas], fact_promesas[es_vencida] = TRUE(), fact_promesas[es_cumplida] = TRUE())",
+            "formatString": "#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Promesas vencidas con pago efectivo >= 90 % de lo prometido."
+          },
+          {
+            "name": "Promesas incumplidas",
+            "expression": "[Promesas vencidas] - [Promesas cumplidas]",
+            "formatString": "#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Promesas vencidas sin pago suficiente."
+          },
+          {
+            "name": "Kept rate",
+            "expression": "DIVIDE([Promesas cumplidas], [Promesas vencidas])",
+            "formatString": "0.0%",
+            "displayFolder": "3. Promesas",
+            "description": "% de promesas vencidas que se cumplieron."
+          },
+          {
+            "name": "Valor prometido",
+            "expression": "SUM(fact_promesas[valor_promesa])",
+            "formatString": "$#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Monto total prometido."
+          },
+          {
+            "name": "Valor pagado sobre promesas",
+            "expression": "SUM(fact_promesas[valor_pagado])",
+            "formatString": "$#,0",
+            "displayFolder": "3. Promesas",
+            "description": "Recaudo efectivo recibido dentro de la ventana de cada promesa."
+          },
+          {
+            "name": "Recaudo efectivo",
+            "expression": "CALCULATE(SUM(fact_recaudo[valor_total_pago]), fact_recaudo[es_recaudo_efectivo] = TRUE())",
+            "formatString": "$#,0",
+            "displayFolder": "4. Recaudo",
+            "description": "Pagos efectivos netos de reversiones (excluye Ajuste / Otros / Otros sin información)."
+          },
+          {
+            "name": "Recaudo con gestión previa",
+            "expression": "CALCULATE([Recaudo efectivo], fact_recaudo[tuvo_gestion_previa_30d] = TRUE())",
+            "formatString": "$#,0",
+            "displayFolder": "4. Recaudo",
+            "description": "Recaudo de créditos gestionados en los 30 días previos al pago."
+          },
+          {
+            "name": "% recaudo con gestión previa",
+            "expression": "DIVIDE([Recaudo con gestión previa], [Recaudo efectivo])",
+            "formatString": "0.0%",
+            "displayFolder": "4. Recaudo",
+            "description": "Participación del recaudo asociada a la gestión."
+          },
+          {
+            "name": "Reversiones",
+            "expression": "CALCULATE(SUM(fact_recaudo[valor_total_pago]), fact_recaudo[es_reversion] = TRUE())",
+            "formatString": "$#,0",
+            "displayFolder": "4. Recaudo",
+            "description": "Valor reversado (negativo)."
+          },
+          {
+            "name": "Saldo de cartera",
+            "expression": "SUM(fact_cartera_mes[saldo_capital])",
+            "formatString": "$#,0",
+            "displayFolder": "5. Cartera",
+            "description": "Saldo de capital (Comité)."
+          },
+          {
+            "name": "Saldo en mora +30",
+            "expression": "CALCULATE([Saldo de cartera], fact_cartera_mes[dias_mora] > 30)",
+            "formatString": "$#,0",
+            "displayFolder": "5. Cartera",
+            "description": "Saldo de créditos con más de 30 días de mora."
+          },
+          {
+            "name": "Índice de cartera vencida",
+            "expression": "DIVIDE([Saldo en mora +30], [Saldo de cartera])",
+            "formatString": "0.0%",
+            "displayFolder": "5. Cartera",
+            "description": "ICV: saldo en mora +30 / saldo total."
+          },
+          {
+            "name": "SMS enviados",
+            "expression": "CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[canal] = \"SMS\")",
+            "formatString": "#,0",
+            "displayFolder": "6. SMS",
+            "description": "Mensajes del Reporte1."
+          },
+          {
+            "name": "Créditos con SMS",
+            "expression": "CALCULATE(DISTINCTCOUNT(fact_gestiones[credito_id]), fact_gestiones[canal] = \"SMS\")",
+            "formatString": "#,0",
+            "displayFolder": "6. SMS",
+            "description": "Créditos distintos contactados por SMS."
+          },
+          {
+            "name": "Tasa de entrega SMS",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS(fact_gestiones), fact_gestiones[canal] = \"SMS\", fact_gestiones[es_entregado] = TRUE()), [SMS enviados])",
+            "formatString": "0.0%",
+            "displayFolder": "6. SMS",
+            "description": "SMS entregados a la red / enviados."
+          },
+          {
+            "name": "CTR SMS",
+            "expression": "DIVIDE(CALCULATE(SUM(fact_gestiones[total_clics]), fact_gestiones[canal] = \"SMS\"), [SMS enviados])",
+            "formatString": "0.00%",
+            "displayFolder": "6. SMS",
+            "description": "Clics / SMS enviados."
+          },
+          {
+            "name": "SMS por crédito",
+            "expression": "DIVIDE([SMS enviados], [Créditos con SMS])",
+            "formatString": "#,0.0",
+            "displayFolder": "6. SMS",
+            "description": "Intensidad del canal SMS."
+          },
+          {
+            "name": "IA generado",
+            "expression": "IF(ISEMPTY(resumen_ia), \"Sin resumen: ejecute python -m Punto_Opcional_IA.resumen_ia\", \"Generado por \" & MAX(resumen_ia[modelo]) & \" el \" & FORMAT(MAX(resumen_ia[generado_en]), \"dd/mm/yyyy hh:nn\") & \" · corte \" & FORMAT(MAX(resumen_ia[fecha_corte]), \"dd/mm/yyyy\"))",
+            "formatString": "",
+            "displayFolder": "7. Resumen IA",
+            "description": "Modelo y fecha del último resumen generado con IA."
+          },
+          {
+            "name": "Filas Vista 1",
+            "expression": "COUNTROWS(vw_promesas_incumplidas_3d)",
+            "formatString": "#,0",
+            "displayFolder": "8. Seguimiento de promesas",
+            "description": "Promesas incumplidas de los últimos 3 días (una fila por crédito y día prometido)."
+          },
+          {
+            "name": "Créditos Vista 2",
+            "expression": "COUNTROWS(vw_mora60_incumplidas_hoy)",
+            "formatString": "#,0",
+            "displayFolder": "8. Seguimiento de promesas",
+            "description": "Créditos con más de 60 días de mora y promesa incumplida hoy."
+          },
+          {
+            "name": "Sin celular Vista 1",
+            "expression": "CALCULATE(COUNTROWS(vw_promesas_incumplidas_3d), ISBLANK(vw_promesas_incumplidas_3d[telefono_celular]))",
+            "formatString": "#,0",
+            "displayFolder": "8. Seguimiento de promesas",
+            "description": "Filas de la Vista 1 sin celular conocido (el crédito no aparece en el Reporte1)."
+          },
+          {
+            "name": "Ejecución de las vistas",
+            "expression": "IF(ISEMPTY(vw_promesas_incumplidas_3d), \"Sin datos\", FORMAT(MAX(vw_promesas_incumplidas_3d[fecha_hora_ejecucion]), \"dd/mm/yyyy hh:nn\"))",
+            "formatString": "",
+            "displayFolder": "8. Seguimiento de promesas",
+            "description": "Fecha y hora en que se consultaron las vistas (última actualización)."
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "b25619cd-0327-4bd1-82da-ec33ef175966",
+        "fromTable": "fact_gestiones",
+        "fromColumn": "fecha_id",
+        "toTable": "dim_fecha",
+        "toColumn": "fecha_id"
+      },
+      {
+        "name": "a43d3f7d-3078-437b-856f-5eda94840a75",
+        "fromTable": "fact_recaudo",
+        "fromColumn": "fecha_id",
+        "toTable": "dim_fecha",
+        "toColumn": "fecha_id"
+      },
+      {
+        "name": "a5372e19-15d4-44c5-9db8-dddfd02ad527",
+        "fromTable": "fact_promesas",
+        "fromColumn": "fecha_promesa_id",
+        "toTable": "dim_fecha",
+        "toColumn": "fecha_id"
+      },
+      {
+        "name": "b771e611-7310-4066-8092-d668fbe9253e",
+        "fromTable": "fact_promesas",
+        "fromColumn": "fecha_gestion_id",
+        "toTable": "dim_fecha",
+        "toColumn": "fecha_id",
+        "isActive": false
+      },
+      {
+        "name": "755ad263-0068-4f3e-b4b1-d39668e3dcad",
+        "fromTable": "fact_cartera_mes",
+        "fromColumn": "fecha_mes",
+        "toTable": "dim_fecha",
+        "toColumn": "fecha"
+      },
+      {
+        "name": "77a3f6f1-bc1e-4650-82ad-a2245c26ae1b",
+        "fromTable": "fact_gestiones",
+        "fromColumn": "credito_id",
+        "toTable": "dim_credito",
+        "toColumn": "credito_id"
+      },
+      {
+        "name": "11d0fb29-e0c5-4701-b6da-c59073a7e2aa",
+        "fromTable": "fact_promesas",
+        "fromColumn": "credito_id",
+        "toTable": "dim_credito",
+        "toColumn": "credito_id"
+      },
+      {
+        "name": "6727a502-b3eb-4527-b22b-b305693e28b6",
+        "fromTable": "fact_recaudo",
+        "fromColumn": "credito_id",
+        "toTable": "dim_credito",
+        "toColumn": "credito_id"
+      },
+      {
+        "name": "47640c34-3ed4-4756-8b58-f465e37896e1",
+        "fromTable": "fact_cartera_mes",
+        "fromColumn": "credito_id",
+        "toTable": "dim_credito",
+        "toColumn": "credito_id"
+      }
+    ],
+    "expressions": [
+      {
+        "name": "ServidorSQL",
+        "kind": "m",
+        "expression": "\"localhost\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      },
+      {
+        "name": "BaseDatos",
+        "kind": "m",
+        "expression": "\"AnaliticaCobranza\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"ServidorSQL\", \"BaseDatos\", \"dim_fecha\", \"dim_credito\", \"fact_gestiones\", \"fact_promesas\", \"fact_cartera_mes\", \"fact_recaudo\", \"resumen_ia\", \"vw_promesas_incumplidas_3d\", \"vw_mora60_incumplidas_hoy\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      }
+    ]
+  }
+}

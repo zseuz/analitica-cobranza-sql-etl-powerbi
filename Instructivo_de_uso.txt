@@ -1,0 +1,255 @@
+=====================================================================
+ INSTRUCTIVO DE USO
+ Analítica de cobranza - SQL, automatización de procesos y Power BI
+=====================================================================
+
+Siga los pasos en orden. Tiempo aproximado: 10 minutos
+(sin contar la instalación de programas).
+
+
+---------------------------------------------------------------------
+ PASO 1. Instale los programas
+---------------------------------------------------------------------
+ 1. SQL Server (edición Developer o Express, gratuitas)
+    https://www.microsoft.com/sql-server/sql-server-downloads
+
+ 2. ODBC Driver 18 for SQL Server
+    https://learn.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server
+
+ 3. Python 3.10 o superior
+    https://www.python.org/downloads/
+    Durante la instalación marque la casilla "Add python.exe to PATH".
+
+ 4. Power BI Desktop (para ver el dashboard)
+    Microsoft Store o https://powerbi.microsoft.com/desktop
+
+ Opcional: SQL Server Management Studio (SSMS), para consultar la base.
+
+
+---------------------------------------------------------------------
+ PASO 2. Revise los archivos de Excel
+---------------------------------------------------------------------
+ Los Excel de origen NO se publican en el repositorio (son datos
+ confidenciales). Copie los dos archivos en la carpeta datos con
+ exactamente estos nombres (si los suyos se llaman distinto, renómbrelos):
+
+    datos\Bases_Cobranza.xlsx
+    datos\base 2.xlsx
+
+
+---------------------------------------------------------------------
+ PASO 3. Abra la consola en la carpeta raíz del proyecto
+---------------------------------------------------------------------
+ 1. Abra la carpeta raíz del proyecto (la que contiene requirements.txt) en el Explorador de archivos.
+ 2. Haga clic en la barra de direcciones (donde aparece la ruta).
+ 3. Escriba  cmd  y presione Enter.
+
+ Se abre una ventana negra ubicada en esa carpeta. Todos los comandos
+ siguientes se escriben en esa ventana.
+
+
+---------------------------------------------------------------------
+ PASO 4. Instale las librerías de Python
+---------------------------------------------------------------------
+    python -m pip install -r requirements.txt
+
+
+---------------------------------------------------------------------
+ PASO 5. Cree la base de datos
+---------------------------------------------------------------------
+ Qué se crea y cómo se conecta:
+    Servidor:       el SQL Server de este equipo (localhost)
+    Base de datos:  AnaliticaCobranza
+    Acceso:         su usuario de Windows (autenticación de Windows).
+                    No se crea ningún usuario y no se pide contraseña.
+
+ Su usuario de Windows debe tener permiso para crear bases de datos
+ (normalmente lo tiene si usted instaló SQL Server en este equipo).
+
+ Si su SQL Server exige usuario y contraseña, o no se llama localhost,
+ escríbalos en el archivo
+    Parte1_ETL_PowerBI\Utilidades_Conexion\config.py
+ (bloque "EDITE AQUÍ"). Ver "CAMBIAR LOS DATOS DE CONEXIÓN", al final.
+
+ Cree la base:
+    python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.crear_base_datos
+
+ Debe ver:
+    OK  01_modelo_relacional.sql
+    OK  02_tablas_data_mart.sql
+    OK  03_vistas_promesas.sql
+    OK  data mart reconstruido      <- solo si la base ya tenía datos
+
+ La primera vez verá solo las 3 primeras líneas. Si ejecuta este paso
+ cuando ya cargó los datos (pasos 6 y 7), verá también la cuarta: el
+ programa vuelve a llenar las tablas del data mart, que son las que
+ usa el dashboard. Las dos situaciones son normales.
+
+
+---------------------------------------------------------------------
+ PASO 6. Cargue las bases 2, 3 y 4 (Recaudo, Comité y Gestiones)
+---------------------------------------------------------------------
+    python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.cargar_bases_2_3_4
+
+ Tarda alrededor de 1 minuto. Al final debe ver:
+    Data mart refrescado.
+
+
+---------------------------------------------------------------------
+ PASO 7. Cargue el Reporte1 (base 1) con el ETL diario
+---------------------------------------------------------------------
+    Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\ejecutar_etl_diario.bat "datos\base 2.xlsx"
+
+ Debe ver:
+    base 2.xlsx -> leídas 7438 | rechazadas 0 | duplicadas 0 | insertadas 7438
+    Data mart refrescado.
+
+ Si ejecuta el comando otra vez, verá "ya fue cargado... Se omite".
+ Es correcto: el ETL reconoce cada archivo por su contenido (no por
+ el nombre ni por la fecha) y nunca carga dos veces el mismo, para no
+ duplicar el volumen de gestiones. Un archivo distinto, como el
+ Reporte1 del día siguiente, sí se carga; si repite algunos registros
+ ya cargados, solo entran los nuevos.
+
+
+---------------------------------------------------------------------
+ PASO 8. Consulte las vistas de promesas (Parte 2)
+---------------------------------------------------------------------
+ Abra SSMS y conéctese con:
+    Servidor:       localhost
+    Autenticación:  Autenticación de Windows
+
+ Luego ejecute:
+
+    USE AnaliticaCobranza;
+    SELECT * FROM seg.vw_promesas_incumplidas_3d;   -- Vista 1 (452 filas)
+    SELECT * FROM seg.vw_mora60_incumplidas_hoy;    -- Vista 2 (13 filas)
+
+ Importante: los datos son de 2025, por eso las vistas
+ toman como "hoy" el 25-jul-2025. Para usar la fecha real del día:
+
+    UPDATE seg.parametro SET fecha_referencia = NULL WHERE id = 1;
+
+ (Con la fecha real las vistas salen vacías porque no hay promesas
+ recientes en los datos.)
+
+
+---------------------------------------------------------------------
+ PASO 9. Abra el dashboard (Parte 1, punto 4)
+---------------------------------------------------------------------
+ El .pbix no se publica porque guarda una copia de los datos. En su
+ lugar se incluye el proyecto de Power BI en formato de texto (PBIP).
+ 1. Abra con doble clic:
+    Parte1_ETL_PowerBI\Punto4_KPIs_Dashboard\Dashboard_Cobranza.pbip
+ 2. Haga clic en  Inicio > Actualizar  (carga los datos desde SQL Server).
+ 3. Si pide credenciales, elija  Windows > Usar mis credenciales actuales.
+ 4. Opcional: Archivo > Guardar como > Dashboard_Cobranza.pbix
+
+ El proyecto se puede regenerar con:
+    python -m Parte1_ETL_PowerBI.Punto4_KPIs_Dashboard.generar_pbip
+
+
+=====================================================================
+ OPCIONAL
+=====================================================================
+
+ A) Programar la carga diaria del Reporte1
+    Ejecute (una sola vez):
+
+    powershell -ExecutionPolicy Bypass -File Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\programar_tarea_diaria.ps1 -Hora 06:00
+
+    Desde ese momento, cada Reporte1 nuevo que deje en
+    Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\entrada\reporte1\
+    se carga solo todos los días a las 06:00, y después se mueve a la
+    carpeta procesados.
+
+    La carpeta entrada\reporte1 no viene en el repositorio: el ETL la crea
+    solo la primera vez que se ejecuta. Si quiere dejar un archivo antes
+    de eso, ejecute una vez
+       Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\ejecutar_etl_diario.bat
+    (sin parámetros) o cree la carpeta a mano.
+
+ B) Resumen ejecutivo con IA (página "Resumen IA" del dashboard)
+    1. Cree una clave gratuita en https://aistudio.google.com
+    2. Guárdela:   setx GEMINI_API_KEY "su-clave"
+    3. Cierre la consola, abra una nueva en la carpeta raíz (paso 3) y ejecute:
+          python -m Punto_Opcional_IA.resumen_ia
+    4. En Power BI haga clic en Actualizar.
+
+
+=====================================================================
+ CAMBIAR LOS DATOS DE CONEXIÓN
+=====================================================================
+ Por defecto: servidor localhost, su usuario de Windows y sin
+ contraseña. Hay tres formas de cambiarlo:
+
+ a) Editando un archivo (la más simple)
+    Abra con el Bloc de notas:
+       Parte1_ETL_PowerBI\Utilidades_Conexion\config.py
+    y cambie las líneas del bloque "DATOS DE CONEXIÓN: EDITE AQUÍ":
+
+       SERVIDOR = "localhost"
+       USUARIO = ""
+       CONTRASENA = ""
+       DRIVER = "ODBC Driver 18 for SQL Server"
+
+    Ejemplo con usuario de SQL Server:
+       USUARIO = "sa"
+       CONTRASENA = "MiClave123"
+    Escriba el valor entre las comillas. Si el servidor lleva barra
+    invertida, anteponga una r:  SERVIDOR = r"localhost\SQLEXPRESS"
+
+ b) Solo para la ventana de cmd abierta (se pierde al cerrarla):
+       set PT_SQL_SERVER=localhost\SQLEXPRESS
+       set PT_SQL_USER=sa
+       set PT_SQL_PASSWORD=MiClave123
+
+ c) De forma permanente (cierre la ventana y abra una nueva después):
+       setx PT_SQL_SERVER "localhost\SQLEXPRESS"
+    Para quitarla:  reg delete HKCU\Environment /v PT_SQL_SERVER /f
+
+ Notas:
+  - Si usa b) o c), esos valores tienen prioridad sobre el archivo.
+  - Una contraseña escrita en config.py o guardada con setx queda sin
+    cifrar: no comparta ese archivo con la clave.
+  - La tarea diaria (Opcional A) usa los valores de a) y de c), no
+    los de b).
+  - El nombre de la base de datos es fijo: AnaliticaCobranza.
+  - Si cambia el servidor, cámbielo también en Power BI:
+    Inicio > Transformar datos > Configuración de origen de datos >
+    Cambiar origen.
+
+
+=====================================================================
+ SI ALGO FALLA
+=====================================================================
+
+ "No se pudo abrir una conexión con SQL Server"
+    Su servidor no se llama "localhost". Si instaló SQL Server Express,
+    ejecute esto antes de los pasos 5 a 7:
+       set PT_SQL_SERVER=localhost\SQLEXPRESS
+
+ "Error de inicio de sesión" / "Login failed for user"
+    Su usuario de Windows no tiene permiso en SQL Server. Entre con un
+    usuario que lo tenga, o escriba usuario y contraseña de SQL Server
+    como se indica en el paso 5.
+
+ "Data source name not found" / no encuentra el driver
+    Instale el ODBC Driver 18 (paso 1). Si tiene el 17, ejecute:
+       set PT_SQL_DRIVER=ODBC Driver 17 for SQL Server
+
+ "No module named Parte1_ETL_PowerBI"
+    La consola no está en la carpeta raíz del proyecto. Repita el paso 3.
+
+ "No module named pandas" (u otra librería)
+    Repita el paso 4.
+
+ "'python' no se reconoce como un comando"
+    Reinstale Python marcando "Add python.exe to PATH".
+
+ "No se encontró ...\datos\Bases_Cobranza.xlsx"
+    Revise el paso 2 (carpeta y nombres de los Excel).
+
+ Las vistas del paso 8 salen vacías
+    Ejecute:
+       UPDATE seg.parametro SET fecha_referencia = '2025-07-25' WHERE id = 1;

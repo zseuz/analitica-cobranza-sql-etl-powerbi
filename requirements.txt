@@ -1,0 +1,10 @@
+# ETL, data mart y vistas (Parte 1 y Parte 2)
+pandas>=2.0
+numpy>=1.24
+openpyxl>=3.1
+SQLAlchemy>=2.0
+pyodbc>=5.0
+
+# Punto opcional de IA (Punto_Opcional_IA/resumen_ia.py): solo el proveedor que se vaya a usar
+google-genai>=1.0      # proveedor por defecto (Gemini)
+# anthropic>=0.40      # proveedor alternativo: python -m Punto_Opcional_IA.resumen_ia --proveedor claude

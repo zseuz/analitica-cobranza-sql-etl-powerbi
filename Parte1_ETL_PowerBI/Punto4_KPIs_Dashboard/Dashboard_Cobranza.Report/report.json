@@ -1,0 +1,864 @@
+{
+  "config": "{\"version\": \"5.43\", \"themeCollection\": {}, \"activeSectionIndex\": 0, \"linguisticSchemaSyncVersion\": 0}",
+  "layoutOptimization": 0,
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Resumen ejecutivo",
+      "displayOption": 1,
+      "filters": "[{\"name\": \"FiltroPeriodo\", \"type\": \"Advanced\", \"howCreated\": 1, \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"dim_fecha\"}}, \"Property\": \"fecha\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"And\": {\"Left\": {\"Comparison\": {\"ComparisonKind\": 2, \"Left\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fecha\"}}, \"Right\": {\"Literal\": {\"Value\": \"datetime'2025-06-01T00:00:00'\"}}}}, \"Right\": {\"Comparison\": {\"ComparisonKind\": 3, \"Left\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fecha\"}}, \"Right\": {\"Literal\": {\"Value\": \"datetime'2025-09-01T00:00:00'\"}}}}}}}]}}]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection01",
+      "ordinal": 0,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 0,
+          "z": 1,
+          "width": 1260,
+          "height": 62,
+          "config": "{\"name\": \"d91d0e4fe72f41b88d12\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 0, \"z\": 1, \"width\": 1260, \"height\": 62}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Gestión de cobranza – Resumen ejecutivo\", \"textStyle\": {\"fontSize\": \"16pt\", \"fontWeight\": \"bold\"}}]}, {\"textRuns\": [{\"value\": \"Periodo: jun–ago 2025 (filtro de página, se cambia en el panel Filtros). Los SMS del Reporte1 son de jul-2022 y se analizan en su propia página.\", \"textStyle\": {\"fontSize\": \"9pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 62,
+          "z": 2,
+          "width": 300,
+          "height": 63,
+          "config": "{\"name\": \"b3117b02bf4b42659f2c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 62, \"z\": 2, \"width\": 300, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fecha.fecha\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Between'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fecha'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 320,
+          "y": 62,
+          "z": 3,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"2e7f69e53fcb4b3ab7d2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 320, \"y\": 62, \"z\": 3, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_gestiones.canal\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"canal\"}, \"Name\": \"fact_gestiones.canal\", \"NativeReferenceName\": \"canal\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Canal de gestión'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 557,
+          "y": 62,
+          "z": 4,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"d2459b9951584cb9ad40\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 557, \"y\": 62, \"z\": 4, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tramo_mora\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 794,
+          "y": 62,
+          "z": 5,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"b4daeb9b1a1743808b34\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 794, \"y\": 62, \"z\": 5, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.estado_cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_cartera\"}, \"Name\": \"dim_credito.estado_cartera\", \"NativeReferenceName\": \"estado_cartera\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Estado de cartera'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1031,
+          "y": 62,
+          "z": 6,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"7dedf0e26624495e9135\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1031, \"y\": 62, \"z\": 6, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tipo_producto\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tipo_producto\"}, \"Name\": \"dim_credito.tipo_producto\", \"NativeReferenceName\": \"tipo_producto\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Producto'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 130,
+          "z": 7,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"afcf0aa7c4e24b919233\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 130, \"z\": 7, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Gestiones de cobranza\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gestiones de cobranza\"}, \"Name\": \"_Medidas.Gestiones de cobranza\", \"NativeReferenceName\": \"Gestiones de cobranza\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gestiones de cobranza'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 190,
+          "y": 130,
+          "z": 8,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"2003b01d99b04ce1ba3a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 190, \"y\": 130, \"z\": 8, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Tasa de contactabilidad\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Tasa de contactabilidad\"}, \"Name\": \"_Medidas.Tasa de contactabilidad\", \"NativeReferenceName\": \"Tasa de contactabilidad\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Contactabilidad'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 370,
+          "y": 130,
+          "z": 9,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"3f251b850cd14543a8bf\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 370, \"y\": 130, \"z\": 9, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Tasa PTP\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Tasa PTP\"}, \"Name\": \"_Medidas.Tasa PTP\", \"NativeReferenceName\": \"Tasa PTP\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tasa PTP'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 550,
+          "y": 130,
+          "z": 10,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"76dd39703d9343b38268\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 550, \"y\": 130, \"z\": 10, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Kept rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Kept rate\"}, \"Name\": \"_Medidas.Kept rate\", \"NativeReferenceName\": \"Kept rate\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Kept rate'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 730,
+          "y": 130,
+          "z": 11,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"97c879d92efd4d008dce\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 730, \"y\": 130, \"z\": 11, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Cobertura de cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cobertura de cartera\"}, \"Name\": \"_Medidas.Cobertura de cartera\", \"NativeReferenceName\": \"Cobertura de cartera\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cobertura'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 910,
+          "y": 130,
+          "z": 12,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"622ffa7f8d054b0bbb8d\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 910, \"y\": 130, \"z\": 12, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Intensidad de gestión\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Intensidad de gestión\"}, \"Name\": \"_Medidas.Intensidad de gestión\", \"NativeReferenceName\": \"Intensidad de gestión\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Intensidad'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1090,
+          "y": 130,
+          "z": 13,
+          "width": 172,
+          "height": 95,
+          "config": "{\"name\": \"d0b9680ecfda41e58395\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1090, \"y\": 130, \"z\": 13, \"width\": 172, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Recaudo efectivo\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Recaudo efectivo\"}, \"Name\": \"_Medidas.Recaudo efectivo\", \"NativeReferenceName\": \"Recaudo efectivo\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Recaudo efectivo'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 235,
+          "z": 14,
+          "width": 410,
+          "height": 230,
+          "config": "{\"name\": \"57244a30cf674de08c0d\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 235, \"z\": 14, \"width\": 410, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"fact_gestiones.canal\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Gestiones (todas las fuentes)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"canal\"}, \"Name\": \"fact_gestiones.canal\", \"NativeReferenceName\": \"canal\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gestiones (todas las fuentes)\"}, \"Name\": \"_Medidas.Gestiones (todas las fuentes)\", \"NativeReferenceName\": \"Gestiones (todas las fuentes)\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gestiones por canal'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 430,
+          "y": 235,
+          "z": 15,
+          "width": 410,
+          "height": 230,
+          "config": "{\"name\": \"f99437dcf2ec4f9eb26f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 430, \"y\": 235, \"z\": 15, \"width\": 410, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_credito.tramo_mora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Tasa de contactabilidad\"}, {\"queryRef\": \"_Medidas.Tasa PTP\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Tasa de contactabilidad\"}, \"Name\": \"_Medidas.Tasa de contactabilidad\", \"NativeReferenceName\": \"Tasa de contactabilidad\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Tasa PTP\"}, \"Name\": \"_Medidas.Tasa PTP\", \"NativeReferenceName\": \"Tasa PTP\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Contactabilidad y PTP por tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 235,
+          "z": 16,
+          "width": 420,
+          "height": 230,
+          "config": "{\"name\": \"eddec8dca5e644a8a2e0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 235, \"z\": 16, \"width\": 420, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"donutChart\", \"projections\": {\"Category\": [{\"queryRef\": \"fact_promesas.estado_promesa\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Promesas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_promesas\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_promesa\"}, \"Name\": \"fact_promesas.estado_promesa\", \"NativeReferenceName\": \"estado_promesa\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Promesas\"}, \"Name\": \"_Medidas.Promesas\", \"NativeReferenceName\": \"Promesas\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Estado de las promesas'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 475,
+          "z": 17,
+          "width": 630,
+          "height": 235,
+          "config": "{\"name\": \"e6b942bc49ec4a4087f2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 475, \"z\": 17, \"width\": 630, \"height\": 235}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_fecha.fecha\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Intentos de contacto\"}, {\"queryRef\": \"_Medidas.Contactos\"}, {\"queryRef\": \"_Medidas.Promesas generadas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Intentos de contacto\"}, \"Name\": \"_Medidas.Intentos de contacto\", \"NativeReferenceName\": \"Intentos de contacto\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Contactos\"}, \"Name\": \"_Medidas.Contactos\", \"NativeReferenceName\": \"Contactos\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Promesas generadas\"}, \"Name\": \"_Medidas.Promesas generadas\", \"NativeReferenceName\": \"Promesas generadas\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Embudo de gestión diario'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650,
+          "y": 475,
+          "z": 18,
+          "width": 620,
+          "height": 235,
+          "config": "{\"name\": \"cd733ec734f640b6b710\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 475, \"z\": 18, \"width\": 620, \"height\": 235}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_fecha.fecha\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Recaudo efectivo\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Recaudo efectivo\"}, \"Name\": \"_Medidas.Recaudo efectivo\", \"NativeReferenceName\": \"Recaudo efectivo\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Recaudo efectivo diario'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "config": "{}",
+      "displayName": "Contacto y cobertura",
+      "displayOption": 1,
+      "filters": "[{\"name\": \"FiltroPeriodo\", \"type\": \"Advanced\", \"howCreated\": 1, \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"dim_fecha\"}}, \"Property\": \"fecha\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"And\": {\"Left\": {\"Comparison\": {\"ComparisonKind\": 2, \"Left\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fecha\"}}, \"Right\": {\"Literal\": {\"Value\": \"datetime'2025-06-01T00:00:00'\"}}}}, \"Right\": {\"Comparison\": {\"ComparisonKind\": 3, \"Left\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fecha\"}}, \"Right\": {\"Literal\": {\"Value\": \"datetime'2025-09-01T00:00:00'\"}}}}}}}]}}]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection06",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 0,
+          "z": 1,
+          "width": 1260,
+          "height": 62,
+          "config": "{\"name\": \"c2900cb42206417783e2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 0, \"z\": 1, \"width\": 1260, \"height\": 62}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Contacto y cobertura de la cartera\", \"textStyle\": {\"fontSize\": \"16pt\", \"fontWeight\": \"bold\"}}]}, {\"textRuns\": [{\"value\": \"La contactabilidad depende de la hora de la llamada y la cobertura es casi igual en todos los tramos de mora. Periodo: jun–ago 2025 (filtro de página, se cambia en el panel Filtros). Los SMS del Reporte1 son de jul-2022 y se analizan en su propia página.\", \"textStyle\": {\"fontSize\": \"9pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 62,
+          "z": 2,
+          "width": 300,
+          "height": 63,
+          "config": "{\"name\": \"3d933dc87f5343d9bc17\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 62, \"z\": 2, \"width\": 300, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fecha.fecha\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Between'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fecha'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 320,
+          "y": 62,
+          "z": 3,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"45aa90c37e8c4710b026\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 320, \"y\": 62, \"z\": 3, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_gestiones.canal\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"canal\"}, \"Name\": \"fact_gestiones.canal\", \"NativeReferenceName\": \"canal\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Canal de gestión'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 557,
+          "y": 62,
+          "z": 4,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"e245a816927c49db93ff\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 557, \"y\": 62, \"z\": 4, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tramo_mora\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 794,
+          "y": 62,
+          "z": 5,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"465ee9d6d29f460d8d0b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 794, \"y\": 62, \"z\": 5, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.estado_cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_cartera\"}, \"Name\": \"dim_credito.estado_cartera\", \"NativeReferenceName\": \"estado_cartera\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Estado de cartera'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1031,
+          "y": 62,
+          "z": 6,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"1b43e85517e6426f9d13\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1031, \"y\": 62, \"z\": 6, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tipo_producto\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tipo_producto\"}, \"Name\": \"dim_credito.tipo_producto\", \"NativeReferenceName\": \"tipo_producto\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Producto'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 130,
+          "z": 7,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"1823cf2565114b6f8016\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 130, \"z\": 7, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Intentos de contacto\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Intentos de contacto\"}, \"Name\": \"_Medidas.Intentos de contacto\", \"NativeReferenceName\": \"Intentos de contacto\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Intentos de contacto'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 220,
+          "y": 130,
+          "z": 8,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"99d7b02e190b4f988039\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 220, \"y\": 130, \"z\": 8, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Tasa de contactabilidad\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Tasa de contactabilidad\"}, \"Name\": \"_Medidas.Tasa de contactabilidad\", \"NativeReferenceName\": \"Tasa de contactabilidad\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Contactabilidad'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 430,
+          "y": 130,
+          "z": 9,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"5e0f13f2d898460e9e83\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 430, \"y\": 130, \"z\": 9, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Tasa de contacto directo\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Tasa de contacto directo\"}, \"Name\": \"_Medidas.Tasa de contacto directo\", \"NativeReferenceName\": \"Tasa de contacto directo\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Contacto directo'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 130,
+          "z": 10,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"04ee85efde5e49b7af08\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 130, \"z\": 10, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Créditos con gestión de cobranza\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Créditos con gestión de cobranza\"}, \"Name\": \"_Medidas.Créditos con gestión de cobranza\", \"NativeReferenceName\": \"Créditos con gestión de cobranza\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Créditos gestionados'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 130,
+          "z": 11,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"685b684b41b04942ab41\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 130, \"z\": 11, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Cobertura de cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cobertura de cartera\"}, \"Name\": \"_Medidas.Cobertura de cartera\", \"NativeReferenceName\": \"Cobertura de cartera\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cobertura'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060,
+          "y": 130,
+          "z": 12,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"da90a93b0036445d8ceb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 130, \"z\": 12, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Cobertura cartera en mora\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cobertura cartera en mora\"}, \"Name\": \"_Medidas.Cobertura cartera en mora\", \"NativeReferenceName\": \"Cobertura cartera en mora\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cobertura cartera en mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 235,
+          "z": 13,
+          "width": 1260,
+          "height": 230,
+          "config": "{\"name\": \"5fcc5fb819c5483386cb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 235, \"z\": 13, \"width\": 1260, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"lineClusteredColumnComboChart\", \"projections\": {\"Category\": [{\"queryRef\": \"fact_gestiones.hora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Intentos de contacto\"}], \"Y2\": [{\"queryRef\": \"_Medidas.Tasa de contactabilidad\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"hora\"}, \"Name\": \"fact_gestiones.hora\", \"NativeReferenceName\": \"hora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Intentos de contacto\"}, \"Name\": \"_Medidas.Intentos de contacto\", \"NativeReferenceName\": \"Intentos de contacto\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Tasa de contactabilidad\"}, \"Name\": \"_Medidas.Tasa de contactabilidad\", \"NativeReferenceName\": \"Tasa de contactabilidad\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Intentos (columnas) y contactabilidad (línea) por hora del día'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 475,
+          "z": 14,
+          "width": 630,
+          "height": 235,
+          "config": "{\"name\": \"e4e77a935022404db8b9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 475, \"z\": 14, \"width\": 630, \"height\": 235}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_credito.tramo_mora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Cobertura de cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Cobertura de cartera\"}, \"Name\": \"_Medidas.Cobertura de cartera\", \"NativeReferenceName\": \"Cobertura de cartera\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cobertura por tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650,
+          "y": 475,
+          "z": 15,
+          "width": 620,
+          "height": 235,
+          "config": "{\"name\": \"8f2904dc625043cba2eb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 475, \"z\": 15, \"width\": 620, \"height\": 235}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_credito.tramo_mora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Créditos en cartera\"}, {\"queryRef\": \"_Medidas.Créditos con gestión de cobranza\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Créditos en cartera\"}, \"Name\": \"_Medidas.Créditos en cartera\", \"NativeReferenceName\": \"Créditos en cartera\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Créditos con gestión de cobranza\"}, \"Name\": \"_Medidas.Créditos con gestión de cobranza\", \"NativeReferenceName\": \"Créditos con gestión de cobranza\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Créditos en cartera y créditos gestionados por tramo'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "config": "{}",
+      "displayName": "Promesas de pago",
+      "displayOption": 1,
+      "filters": "[{\"name\": \"FiltroPeriodo\", \"type\": \"Advanced\", \"howCreated\": 1, \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"dim_fecha\"}}, \"Property\": \"fecha\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"And\": {\"Left\": {\"Comparison\": {\"ComparisonKind\": 2, \"Left\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fecha\"}}, \"Right\": {\"Literal\": {\"Value\": \"datetime'2025-06-01T00:00:00'\"}}}}, \"Right\": {\"Comparison\": {\"ComparisonKind\": 3, \"Left\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fecha\"}}, \"Right\": {\"Literal\": {\"Value\": \"datetime'2025-09-01T00:00:00'\"}}}}}}}]}}]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection02",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 0,
+          "z": 1,
+          "width": 1260,
+          "height": 62,
+          "config": "{\"name\": \"341debfd12e34e72b18d\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 0, \"z\": 1, \"width\": 1260, \"height\": 62}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Promesas de pago (PTP) y cumplimiento\", \"textStyle\": {\"fontSize\": \"16pt\", \"fontWeight\": \"bold\"}}]}, {\"textRuns\": [{\"value\": \"Periodo: jun–ago 2025 (filtro de página, se cambia en el panel Filtros). Los SMS del Reporte1 son de jul-2022 y se analizan en su propia página.\", \"textStyle\": {\"fontSize\": \"9pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 62,
+          "z": 2,
+          "width": 300,
+          "height": 63,
+          "config": "{\"name\": \"4328abcaf3534d998ede\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 62, \"z\": 2, \"width\": 300, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fecha.fecha\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Between'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fecha'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 320,
+          "y": 62,
+          "z": 3,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"c65cb066514c468a9b23\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 320, \"y\": 62, \"z\": 3, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_gestiones.canal\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"canal\"}, \"Name\": \"fact_gestiones.canal\", \"NativeReferenceName\": \"canal\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Canal de gestión'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 557,
+          "y": 62,
+          "z": 4,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"5ef62af9302049fabda0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 557, \"y\": 62, \"z\": 4, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tramo_mora\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 794,
+          "y": 62,
+          "z": 5,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"c5e2fcb638cd4530926e\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 794, \"y\": 62, \"z\": 5, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.estado_cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_cartera\"}, \"Name\": \"dim_credito.estado_cartera\", \"NativeReferenceName\": \"estado_cartera\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Estado de cartera'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1031,
+          "y": 62,
+          "z": 6,
+          "width": 227,
+          "height": 63,
+          "config": "{\"name\": \"e31a1e1d91c7481f93f8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1031, \"y\": 62, \"z\": 6, \"width\": 227, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tipo_producto\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tipo_producto\"}, \"Name\": \"dim_credito.tipo_producto\", \"NativeReferenceName\": \"tipo_producto\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Producto'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 130,
+          "z": 7,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"97f9179c2f414845b7ce\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 130, \"z\": 7, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Promesas generadas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Promesas generadas\"}, \"Name\": \"_Medidas.Promesas generadas\", \"NativeReferenceName\": \"Promesas generadas\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Promesas generadas'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 220,
+          "y": 130,
+          "z": 8,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"92c86398dd3148659469\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 220, \"y\": 130, \"z\": 8, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Tasa PTP\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Tasa PTP\"}, \"Name\": \"_Medidas.Tasa PTP\", \"NativeReferenceName\": \"Tasa PTP\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tasa PTP'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 430,
+          "y": 130,
+          "z": 9,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"c49a74e7391b40ddaa49\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 430, \"y\": 130, \"z\": 9, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Promesas vencidas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Promesas vencidas\"}, \"Name\": \"_Medidas.Promesas vencidas\", \"NativeReferenceName\": \"Promesas vencidas\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Promesas vencidas'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 130,
+          "z": 10,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"fb11a7d019d543db8207\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 130, \"z\": 10, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Kept rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Kept rate\"}, \"Name\": \"_Medidas.Kept rate\", \"NativeReferenceName\": \"Kept rate\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Kept rate'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 130,
+          "z": 11,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"722aa95ff3da4d51acc7\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 130, \"z\": 11, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Valor prometido\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Valor prometido\"}, \"Name\": \"_Medidas.Valor prometido\", \"NativeReferenceName\": \"Valor prometido\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Valor prometido'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060,
+          "y": 130,
+          "z": 12,
+          "width": 200,
+          "height": 95,
+          "config": "{\"name\": \"63581cf084df432fa32b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 130, \"z\": 12, \"width\": 200, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Valor pagado sobre promesas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Valor pagado sobre promesas\"}, \"Name\": \"_Medidas.Valor pagado sobre promesas\", \"NativeReferenceName\": \"Valor pagado sobre promesas\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Valor pagado'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 235,
+          "z": 13,
+          "width": 630,
+          "height": 230,
+          "config": "{\"name\": \"95d6935cd43340458049\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 235, \"z\": 13, \"width\": 630, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"columnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_fecha.fecha\", \"active\": true}], \"Series\": [{\"queryRef\": \"fact_promesas.estado_promesa\"}], \"Y\": [{\"queryRef\": \"_Medidas.Promesas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"fact_promesas\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"estado_promesa\"}, \"Name\": \"fact_promesas.estado_promesa\", \"NativeReferenceName\": \"estado_promesa\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Promesas\"}, \"Name\": \"_Medidas.Promesas\", \"NativeReferenceName\": \"Promesas\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Promesas por día prometido y estado'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650,
+          "y": 235,
+          "z": 14,
+          "width": 620,
+          "height": 230,
+          "config": "{\"name\": \"bf5ad617c0d640c8908c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 235, \"z\": 14, \"width\": 620, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_credito.tramo_mora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.Kept rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Kept rate\"}, \"Name\": \"_Medidas.Kept rate\", \"NativeReferenceName\": \"Kept rate\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Kept rate por tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 475,
+          "z": 15,
+          "width": 1260,
+          "height": 235,
+          "config": "{\"name\": \"978f00ccd40340249a9d\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 475, \"z\": 15, \"width\": 1260, \"height\": 235}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_promesas.credito_id\"}, {\"queryRef\": \"fact_promesas.fecha_gestion\"}, {\"queryRef\": \"fact_promesas.fecha_promesa\"}, {\"queryRef\": \"fact_promesas.tipificacion\"}, {\"queryRef\": \"fact_promesas.valor_promesa\"}, {\"queryRef\": \"fact_promesas.valor_pagado\"}, {\"queryRef\": \"fact_promesas.estado_promesa\"}, {\"queryRef\": \"fact_promesas.dias_mora\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_promesas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"credito_id\"}, \"Name\": \"fact_promesas.credito_id\", \"NativeReferenceName\": \"credito_id\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha_gestion\"}, \"Name\": \"fact_promesas.fecha_gestion\", \"NativeReferenceName\": \"fecha_gestion\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha_promesa\"}, \"Name\": \"fact_promesas.fecha_promesa\", \"NativeReferenceName\": \"fecha_promesa\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tipificacion\"}, \"Name\": \"fact_promesas.tipificacion\", \"NativeReferenceName\": \"tipificacion\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"valor_promesa\"}, \"Name\": \"fact_promesas.valor_promesa\", \"NativeReferenceName\": \"valor_promesa\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"valor_pagado\"}, \"Name\": \"fact_promesas.valor_pagado\", \"NativeReferenceName\": \"valor_pagado\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_promesa\"}, \"Name\": \"fact_promesas.estado_promesa\", \"NativeReferenceName\": \"estado_promesa\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"dias_mora\"}, \"Name\": \"fact_promesas.dias_mora\", \"NativeReferenceName\": \"dias_mora\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Detalle de promesas'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "config": "{}",
+      "displayName": "Seguimiento de promesas (Parte 2)",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection07",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 0,
+          "z": 1,
+          "width": 1260,
+          "height": 62,
+          "config": "{\"name\": \"1228cbd438a04684ac31\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 0, \"z\": 1, \"width\": 1260, \"height\": 62}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Seguimiento diario de promesas incumplidas (Parte 2)\", \"textStyle\": {\"fontSize\": \"16pt\", \"fontWeight\": \"bold\"}}]}, {\"textRuns\": [{\"value\": \"Vistas seg.vw_promesas_incumplidas_3d (Vista 1) y seg.vw_mora60_incumplidas_hoy (Vista 2), excluyentes entre sí. Se actualizan al pulsar Actualizar; 'hoy' es la fecha de seg.parametro (25-jul-2025 en modo demostración).\", \"textStyle\": {\"fontSize\": \"9pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 65,
+          "z": 2,
+          "width": 305,
+          "height": 90,
+          "config": "{\"name\": \"0921e07fb1004e14981c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 65, \"z\": 2, \"width\": 305, \"height\": 90}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Filas Vista 1\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Filas Vista 1\"}, \"Name\": \"_Medidas.Filas Vista 1\", \"NativeReferenceName\": \"Filas Vista 1\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Vista 1: promesas incumplidas'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 325,
+          "y": 65,
+          "z": 3,
+          "width": 305,
+          "height": 90,
+          "config": "{\"name\": \"60f1b0515ca048d6b488\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 325, \"y\": 65, \"z\": 3, \"width\": 305, \"height\": 90}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Créditos Vista 2\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Créditos Vista 2\"}, \"Name\": \"_Medidas.Créditos Vista 2\", \"NativeReferenceName\": \"Créditos Vista 2\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Vista 2: créditos mora +60'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 65,
+          "z": 4,
+          "width": 305,
+          "height": 90,
+          "config": "{\"name\": \"b17f6d3258b64dd78103\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 65, \"z\": 4, \"width\": 305, \"height\": 90}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Sin celular Vista 1\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sin celular Vista 1\"}, \"Name\": \"_Medidas.Sin celular Vista 1\", \"NativeReferenceName\": \"Sin celular Vista 1\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Vista 1 sin celular'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 955,
+          "y": 65,
+          "z": 5,
+          "width": 305,
+          "height": 90,
+          "config": "{\"name\": \"ca8cde377073474a8d4f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 955, \"y\": 65, \"z\": 5, \"width\": 305, \"height\": 90}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Ejecución de las vistas\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Ejecución de las vistas\"}, \"Name\": \"_Medidas.Ejecución de las vistas\", \"NativeReferenceName\": \"Ejecución de las vistas\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Ejecución de las vistas'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 165,
+          "z": 6,
+          "width": 1260,
+          "height": 195,
+          "config": "{\"name\": \"2ba23cfba6124ea0aa0c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 165, \"z\": 6, \"width\": 1260, \"height\": 195}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"vw_mora60_incumplidas_hoy.credito\"}, {\"queryRef\": \"vw_mora60_incumplidas_hoy.telefono_celular\"}, {\"queryRef\": \"vw_mora60_incumplidas_hoy.valor_cuota\"}, {\"queryRef\": \"vw_mora60_incumplidas_hoy.numero_dias_mora\"}, {\"queryRef\": \"vw_mora60_incumplidas_hoy.estado_credito\"}, {\"queryRef\": \"vw_mora60_incumplidas_hoy.dia_promesa\"}, {\"queryRef\": \"vw_mora60_incumplidas_hoy.fecha_hora_ejecucion\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"vw_mora60_incumplidas_hoy\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"credito\"}, \"Name\": \"vw_mora60_incumplidas_hoy.credito\", \"NativeReferenceName\": \"credito\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"telefono_celular\"}, \"Name\": \"vw_mora60_incumplidas_hoy.telefono_celular\", \"NativeReferenceName\": \"telefono_celular\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"valor_cuota\"}, \"Name\": \"vw_mora60_incumplidas_hoy.valor_cuota\", \"NativeReferenceName\": \"valor_cuota\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"numero_dias_mora\"}, \"Name\": \"vw_mora60_incumplidas_hoy.numero_dias_mora\", \"NativeReferenceName\": \"numero_dias_mora\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_credito\"}, \"Name\": \"vw_mora60_incumplidas_hoy.estado_credito\", \"NativeReferenceName\": \"estado_credito\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"dia_promesa\"}, \"Name\": \"vw_mora60_incumplidas_hoy.dia_promesa\", \"NativeReferenceName\": \"dia_promesa\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha_hora_ejecucion\"}, \"Name\": \"vw_mora60_incumplidas_hoy.fecha_hora_ejecucion\", \"NativeReferenceName\": \"fecha_hora_ejecucion\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Vista 2 – Créditos con más de 60 días de mora y promesa incumplida hoy'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 370,
+          "z": 7,
+          "width": 1260,
+          "height": 340,
+          "config": "{\"name\": \"e3de7011f15147c59d27\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 370, \"z\": 7, \"width\": 1260, \"height\": 340}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"vw_promesas_incumplidas_3d.credito\"}, {\"queryRef\": \"vw_promesas_incumplidas_3d.telefono_celular\"}, {\"queryRef\": \"vw_promesas_incumplidas_3d.valor_cuota\"}, {\"queryRef\": \"vw_promesas_incumplidas_3d.numero_dias_mora\"}, {\"queryRef\": \"vw_promesas_incumplidas_3d.estado_credito\"}, {\"queryRef\": \"vw_promesas_incumplidas_3d.dia_promesa\"}, {\"queryRef\": \"vw_promesas_incumplidas_3d.fecha_hora_ejecucion\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"vw_promesas_incumplidas_3d\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"credito\"}, \"Name\": \"vw_promesas_incumplidas_3d.credito\", \"NativeReferenceName\": \"credito\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"telefono_celular\"}, \"Name\": \"vw_promesas_incumplidas_3d.telefono_celular\", \"NativeReferenceName\": \"telefono_celular\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"valor_cuota\"}, \"Name\": \"vw_promesas_incumplidas_3d.valor_cuota\", \"NativeReferenceName\": \"valor_cuota\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"numero_dias_mora\"}, \"Name\": \"vw_promesas_incumplidas_3d.numero_dias_mora\", \"NativeReferenceName\": \"numero_dias_mora\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_credito\"}, \"Name\": \"vw_promesas_incumplidas_3d.estado_credito\", \"NativeReferenceName\": \"estado_credito\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"dia_promesa\"}, \"Name\": \"vw_promesas_incumplidas_3d.dia_promesa\", \"NativeReferenceName\": \"dia_promesa\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha_hora_ejecucion\"}, \"Name\": \"vw_promesas_incumplidas_3d.fecha_hora_ejecucion\", \"NativeReferenceName\": \"fecha_hora_ejecucion\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Vista 1 – Promesas incumplidas de los últimos 3 días (incluye hoy)'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "config": "{}",
+      "displayName": "Canal SMS (Reporte1)",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection03",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 0,
+          "z": 1,
+          "width": 1260,
+          "height": 62,
+          "config": "{\"name\": \"bd10ab950ca84114aacc\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 0, \"z\": 1, \"width\": 1260, \"height\": 62}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Canal SMS – Reporte1 (gestiones de cobro por mensajería)\", \"textStyle\": {\"fontSize\": \"16pt\", \"fontWeight\": \"bold\"}}]}, {\"textRuns\": [{\"value\": \"Los SMS son del 25 y 26 de julio de 2022 (las demás bases son de jun–ago 2025), por eso esta página no aplica el periodo inicial. El tramo de mora es el de la foto de Comité más cercana.\", \"textStyle\": {\"fontSize\": \"9pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 62,
+          "z": 2,
+          "width": 300,
+          "height": 63,
+          "config": "{\"name\": \"7a9e1306f5fd4904aef9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 62, \"z\": 2, \"width\": 300, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fecha.fecha\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fecha\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fecha\"}, \"Name\": \"dim_fecha.fecha\", \"NativeReferenceName\": \"fecha\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Between'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fecha'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 320,
+          "y": 62,
+          "z": 3,
+          "width": 306,
+          "height": 63,
+          "config": "{\"name\": \"037dccee039340769048\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 320, \"y\": 62, \"z\": 3, \"width\": 306, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tramo_mora\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 636,
+          "y": 62,
+          "z": 4,
+          "width": 306,
+          "height": 63,
+          "config": "{\"name\": \"d719bfd4c6054ea88db5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 636, \"y\": 62, \"z\": 4, \"width\": 306, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.estado_cartera\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"estado_cartera\"}, \"Name\": \"dim_credito.estado_cartera\", \"NativeReferenceName\": \"estado_cartera\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Estado de cartera'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 952,
+          "y": 62,
+          "z": 5,
+          "width": 306,
+          "height": 63,
+          "config": "{\"name\": \"634454a142214f30b81c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 952, \"y\": 62, \"z\": 5, \"width\": 306, \"height\": 63}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_credito.tipo_producto\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tipo_producto\"}, \"Name\": \"dim_credito.tipo_producto\", \"NativeReferenceName\": \"tipo_producto\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Producto'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 130,
+          "z": 6,
+          "width": 242,
+          "height": 95,
+          "config": "{\"name\": \"90091583a97946e9ab61\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 130, \"z\": 6, \"width\": 242, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.SMS enviados\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"SMS enviados\"}, \"Name\": \"_Medidas.SMS enviados\", \"NativeReferenceName\": \"SMS enviados\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SMS enviados'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 262,
+          "y": 130,
+          "z": 7,
+          "width": 242,
+          "height": 95,
+          "config": "{\"name\": \"a8117876e7b144e99728\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 262, \"y\": 130, \"z\": 7, \"width\": 242, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Créditos con SMS\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Créditos con SMS\"}, \"Name\": \"_Medidas.Créditos con SMS\", \"NativeReferenceName\": \"Créditos con SMS\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Créditos con SMS'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 514,
+          "y": 130,
+          "z": 8,
+          "width": 242,
+          "height": 95,
+          "config": "{\"name\": \"93a9450d0d894cf9a85f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 514, \"y\": 130, \"z\": 8, \"width\": 242, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.SMS por crédito\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"SMS por crédito\"}, \"Name\": \"_Medidas.SMS por crédito\", \"NativeReferenceName\": \"SMS por crédito\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SMS por crédito'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 766,
+          "y": 130,
+          "z": 9,
+          "width": 242,
+          "height": 95,
+          "config": "{\"name\": \"15146d059d7245b6a045\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 766, \"y\": 130, \"z\": 9, \"width\": 242, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.Tasa de entrega SMS\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Tasa de entrega SMS\"}, \"Name\": \"_Medidas.Tasa de entrega SMS\", \"NativeReferenceName\": \"Tasa de entrega SMS\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Tasa de entrega'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1018,
+          "y": 130,
+          "z": 10,
+          "width": 242,
+          "height": 95,
+          "config": "{\"name\": \"d9945ad8692749ceaa16\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1018, \"y\": 130, \"z\": 10, \"width\": 242, \"height\": 95}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.CTR SMS\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"CTR SMS\"}, \"Name\": \"_Medidas.CTR SMS\", \"NativeReferenceName\": \"CTR SMS\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'CTR (clics)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 235,
+          "z": 11,
+          "width": 410,
+          "height": 475,
+          "config": "{\"name\": \"56b6bf7d3a9f4075a6a5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 235, \"z\": 11, \"width\": 410, \"height\": 475}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"fact_gestiones.operador\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.SMS enviados\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"operador\"}, \"Name\": \"fact_gestiones.operador\", \"NativeReferenceName\": \"operador\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"SMS enviados\"}, \"Name\": \"_Medidas.SMS enviados\", \"NativeReferenceName\": \"SMS enviados\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SMS por operador'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 430,
+          "y": 235,
+          "z": 12,
+          "width": 410,
+          "height": 230,
+          "config": "{\"name\": \"8705e0640c6c4ba49153\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 430, \"y\": 235, \"z\": 12, \"width\": 410, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"donutChart\", \"projections\": {\"Category\": [{\"queryRef\": \"fact_gestiones.resultado\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.SMS enviados\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"resultado\"}, \"Name\": \"fact_gestiones.resultado\", \"NativeReferenceName\": \"resultado\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"SMS enviados\"}, \"Name\": \"_Medidas.SMS enviados\", \"NativeReferenceName\": \"SMS enviados\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SMS por tipo de mensaje'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 235,
+          "z": 13,
+          "width": 420,
+          "height": 230,
+          "config": "{\"name\": \"cb09e1925a524b438211\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 235, \"z\": 13, \"width\": 420, \"height\": 230}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"fact_gestiones.hora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.SMS enviados\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"fact_gestiones\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"hora\"}, \"Name\": \"fact_gestiones.hora\", \"NativeReferenceName\": \"hora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"SMS enviados\"}, \"Name\": \"_Medidas.SMS enviados\", \"NativeReferenceName\": \"SMS enviados\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SMS por hora de envío'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 430,
+          "y": 475,
+          "z": 14,
+          "width": 840,
+          "height": 235,
+          "config": "{\"name\": \"463419f3e598446b9008\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 430, \"y\": 475, \"z\": 14, \"width\": 840, \"height\": 235}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_credito.tramo_mora\", \"active\": true}], \"Y\": [{\"queryRef\": \"_Medidas.SMS enviados\"}, {\"queryRef\": \"_Medidas.Créditos con SMS\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_credito\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"tramo_mora\"}, \"Name\": \"dim_credito.tramo_mora\", \"NativeReferenceName\": \"tramo_mora\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"SMS enviados\"}, \"Name\": \"_Medidas.SMS enviados\", \"NativeReferenceName\": \"SMS enviados\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Créditos con SMS\"}, \"Name\": \"_Medidas.Créditos con SMS\", \"NativeReferenceName\": \"Créditos con SMS\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SMS por tramo de mora'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "config": "{}",
+      "displayName": "Resumen IA",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection05",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 5,
+          "z": 1,
+          "width": 1260,
+          "height": 50,
+          "config": "{\"name\": \"b11c4ce6349e4b88ac31\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 5, \"z\": 1, \"width\": 1260, \"height\": 50}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Resumen ejecutivo generado con IA\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontWeight\": \"bold\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 55,
+          "z": 2,
+          "width": 1260,
+          "height": 45,
+          "config": "{\"name\": \"242e62eba0b347b6aa38\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 55, \"z\": 2, \"width\": 1260, \"height\": 45}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Narrativa generada con IA (Google Gemini por defecto) a partir de los KPIs agregados del data mart (Punto_Opcional_IA/resumen_ia.py). Revise las cifras contra las páginas anteriores antes de usarla.\", \"textStyle\": {\"fontSize\": \"10pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 100,
+          "z": 3,
+          "width": 1260,
+          "height": 60,
+          "config": "{\"name\": \"aedf41ed0e874ed3ac44\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 100, \"z\": 3, \"width\": 1260, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Medidas.IA generado\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Medidas\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"IA generado\"}, \"Name\": \"_Medidas.IA generado\", \"NativeReferenceName\": \"IA generado\"}]}, \"drillFilterOtherVisuals\": true, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Origen'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 170,
+          "z": 4,
+          "width": 1260,
+          "height": 540,
+          "config": "{\"name\": \"678416379fee4a6f8948\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 170, \"z\": 4, \"width\": 1260, \"height\": 540}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"resumen_ia.etiqueta\"}, {\"queryRef\": \"resumen_ia.severidad\"}, {\"queryRef\": \"resumen_ia.titulo\"}, {\"queryRef\": \"resumen_ia.texto\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"resumen_ia\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"etiqueta\"}, \"Name\": \"resumen_ia.etiqueta\", \"NativeReferenceName\": \"etiqueta\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"severidad\"}, \"Name\": \"resumen_ia.severidad\", \"NativeReferenceName\": \"severidad\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"titulo\"}, \"Name\": \"resumen_ia.titulo\", \"NativeReferenceName\": \"titulo\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"texto\"}, \"Name\": \"resumen_ia.texto\", \"NativeReferenceName\": \"texto\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Titular, resumen, alertas y recomendaciones'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "config": "{}",
+      "displayName": "Definición de KPIs",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.0,
+      "width": 1280.0,
+      "name": "ReportSection04",
+      "ordinal": 6,
+      "visualContainers": [
+        {
+          "x": 10,
+          "y": 0,
+          "z": 1,
+          "width": 1260,
+          "height": 62,
+          "config": "{\"name\": \"fbaea9f02c064cf0a0fc\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 0, \"z\": 1, \"width\": 1260, \"height\": 62}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Definición y utilidad de los KPIs\", \"textStyle\": {\"fontSize\": \"16pt\", \"fontWeight\": \"bold\"}}]}, {\"textRuns\": [{\"value\": \"Qué mide cada indicador, cómo se calcula y para qué sirve en la operación o en la gerencia.\", \"textStyle\": {\"fontSize\": \"9pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 70,
+          "z": 2,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"f1048610dc4a4d0a8ae6\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 70, \"z\": 2, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Tasa de contactabilidad\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Contactos / intentos telefónicos\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Mide la calidad de la base de teléfonos y la efectividad del marcador. Si baja, hay que depurar números o cambiar franjas horarias.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 433,
+          "y": 70,
+          "z": 3,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"3416ea66b3664122b2f0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 433, \"y\": 70, \"z\": 3, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Tasa de contacto directo\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Contactos con el titular / intentos\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Solo el titular puede comprometerse a pagar: es el verdadero techo de la gestión telefónica.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 856,
+          "y": 70,
+          "z": 4,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"76b35b33e425480694df\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 856, \"y\": 70, \"z\": 4, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Tasa PTP (promesas de pago)\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Promesas / contactos directos\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Mide la capacidad de negociación. Una PTP baja con contacto alto apunta a guion, capacitación u ofertas de normalización.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 231,
+          "z": 5,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"41239bb3fdd14967b8df\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 231, \"z\": 5, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Kept rate (cumplimiento)\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Promesas cumplidas / promesas vencidas\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Mide la calidad de las promesas. Una PTP alta con kept rate bajo indica promesas 'de salida' que no generan caja.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 433,
+          "y": 231,
+          "z": 6,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"652ac03f87654895a92b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 433, \"y\": 231, \"z\": 6, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Cobertura de cartera\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Créditos con gestión de cobranza / créditos en cartera\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Qué parte del portafolio se está gestionando. Sirve para dimensionar la capacidad operativa y priorizar tramos sin gestión.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 856,
+          "y": 231,
+          "z": 7,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"206e7a786dc746ea8431\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 856, \"y\": 231, \"z\": 7, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Intensidad de gestión\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Gestiones de cobranza / créditos con gestión\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Esfuerzo por crédito. Comparada con el recaudo, muestra si insistir más genera pago o solo costo (y riesgo de acoso al cliente).\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 392,
+          "z": 8,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"a7625eecaf964210af8a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 392, \"z\": 8, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Recaudo efectivo y % con gestión previa\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Pagos efectivos netos de reversiones\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Resultado final en caja, sin ajustes ni 'otros'. El % con gestión previa (30 días) aproxima el aporte de la cobranza al recaudo.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 433,
+          "y": 392,
+          "z": 9,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"bacfa41d929d47b385f2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 433, \"y\": 392, \"z\": 9, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Índice de cartera vencida (ICV)\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Saldo con mora > 30 días / saldo total\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Salud del portafolio y contexto para leer los demás KPIs por tramo de mora.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 856,
+          "y": 392,
+          "z": 10,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"fc81eb879c1749da9d7f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 856, \"y\": 392, \"z\": 10, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Canal SMS\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Volumen, tasa de entrega, CTR y SMS por crédito\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Eficiencia del canal digital de menor costo. Con 0 clics en el Reporte1, el SMS funciona como recordatorio y no como canal de autogestión.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 10,
+          "y": 553,
+          "z": 11,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"10ef74fbeb7d4a0b8c0c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 553, \"z\": 11, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Seguimiento de promesas (Parte 2)\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F4E79\"}}]}, {\"textRuns\": [{\"value\": \"Vista 1 y Vista 2, excluyentes\", \"textStyle\": {\"fontSize\": \"9pt\", \"fontWeight\": \"bold\", \"color\": \"#595959\"}}]}, {\"textRuns\": [{\"value\": \"Listas de trabajo diarias: promesas incumplidas de los últimos 3 días y créditos con mora +60 y promesa incumplida hoy.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#F3F7FB'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#BDD3E8'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 433,
+          "y": 553,
+          "z": 12,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"00fe982a40324c47ba81\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 433, \"y\": 553, \"z\": 12, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Nota sobre fechas y fuentes\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#8A6D00\"}}]}, {\"textRuns\": [{\"value\": \"Gestiones, promesas y recaudo son de jun–ago 2025; los SMS del Reporte1 son de jul-2022. Por eso los KPIs de gestión no incluyen los SMS.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#FFF8E1'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#E6C35C'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 856,
+          "y": 553,
+          "z": 13,
+          "width": 413,
+          "height": 155,
+          "config": "{\"name\": \"16682f96edcb453796e7\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 856, \"y\": 553, \"z\": 13, \"width\": 413, \"height\": 155}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Nota sobre asesor\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#8A6D00\"}}]}, {\"textRuns\": [{\"value\": \"Las fuentes no traen asesor ni agente. El tablero segmenta por fecha, canal, tramo de mora, estado y producto.\", \"textStyle\": {\"fontSize\": \"9pt\", \"color\": \"#262626\"}}]}]}}]}, \"vcObjects\": {\"background\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#FFF8E1'\"}}}}}, \"transparency\": {\"expr\": {\"Literal\": {\"Value\": \"0D\"}}}}}], \"border\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#E6C35C'\"}}}}}, \"radius\": {\"expr\": {\"Literal\": {\"Value\": \"8D\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    }
+  ]
+}

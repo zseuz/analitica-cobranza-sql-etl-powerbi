@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Dashboard_Cobranza"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "479ad74d-df27-5c2a-bc59-4c7a31adc162"
+  }
+}

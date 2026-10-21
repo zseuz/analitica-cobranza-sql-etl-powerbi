@@ -1,0 +1,34 @@
+# Datos confidenciales
+datos/*
+!datos/README.md
+*.xlsx
+*.xls
+*.csv
+*.pbix
+*.zip
+
+# Carpetas que genera el ETL al ejecutarse
+Parte1_ETL_PowerBI/logs/
+Parte1_ETL_PowerBI/Punto2_ETL_Reporte1/entrada/
+Parte1_ETL_PowerBI/Punto2_ETL_Reporte1/procesados/
+
+# Power BI (archivos locales del proyecto PBIP)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Credenciales y entorno
+.env
+*.env
+
+# Sistema / editores
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+~$*
