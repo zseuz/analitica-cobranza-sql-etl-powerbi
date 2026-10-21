@@ -14,9 +14,9 @@ Dos proveedores intercambiables (mismo prompt, mismo esquema de salida, misma ta
 Ambos con salida estructurada (JSON validado contra un esquema fijo). Las claves nunca van en el código.
 
 Uso (desde la carpeta raíz del proyecto):
-  python -m Punto_Opcional_IA.resumen_ia --simular              # muestra los KPIs y el prompt, sin llamar a la API
-  python -m Punto_Opcional_IA.resumen_ia                        # genera con Gemini y guarda en mart.resumen_ia
-  python -m Punto_Opcional_IA.resumen_ia --proveedor claude     # genera con Claude
+  python -m etl.resumen_ia --simular              # muestra los KPIs y el prompt, sin llamar a la API
+  python -m etl.resumen_ia                        # genera con Gemini y guarda en mart.resumen_ia
+  python -m etl.resumen_ia --proveedor claude     # genera con Claude
 """
 import argparse
 import json
@@ -280,15 +280,15 @@ def a_filas(resumen, modelo, fecha_corte):
 
 
 def guardar(eng, df):
-    from Parte1_ETL_PowerBI.Utilidades_Conexion.db import insertar
+    from .db import insertar
     with eng.begin() as cn:
         cn.execute(text("DELETE FROM mart.resumen_ia"))      # el tablero muestra siempre el último
         insertar(cn, df, "mart.resumen_ia")
 
 
 def main(argv=None):
-    from Parte1_ETL_PowerBI.Utilidades_Conexion.db import motor
-    from Parte1_ETL_PowerBI.Punto2_ETL_Reporte1.etl_reporte1 import configurar_log
+    from .db import motor
+    from .etl_reporte1 import configurar_log
 
     p = argparse.ArgumentParser(description="Resumen ejecutivo de cobranza con IA generativa")
     p.add_argument("--simular", action="store_true", help="muestra KPIs y prompt sin llamar a la API")

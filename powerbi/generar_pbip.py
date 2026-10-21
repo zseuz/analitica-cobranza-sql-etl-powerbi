@@ -6,7 +6,7 @@ Crea un proyecto PBIP (formato de texto de Power BI Desktop) con:
   * Reporte (report.json): 7 páginas con tarjetas de KPI, gráficos y segmentadores.
 
 Uso:
-  python -m Parte1_ETL_PowerBI.Punto4_KPIs_Dashboard.generar_pbip
+  python -m powerbi.generar_pbip
   -> abrir Dashboard_Cobranza.pbip en Power BI Desktop, Actualizar,
      y Archivo > Guardar como > .pbix.
 """
@@ -17,8 +17,8 @@ from pathlib import Path
 
 import pyodbc
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))   # raíz del repo
-from Parte1_ETL_PowerBI.Utilidades_Conexion import config  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))   # raíz del repo
+from etl import config  # noqa: E402
 
 NOMBRE = "Dashboard_Cobranza"
 SALIDA = Path(__file__).resolve().parent
@@ -115,7 +115,7 @@ DAX = [
      "Intensidad del canal SMS."),
     # --- Resumen IA ----------------------------------------------------------------------------
     ("IA generado",
-     'IF(ISEMPTY(resumen_ia), "Sin resumen: ejecute python -m Punto_Opcional_IA.resumen_ia", '
+     'IF(ISEMPTY(resumen_ia), "Sin resumen: ejecute python -m etl.resumen_ia", '
      '"Generado por " & MAX(resumen_ia[modelo]) & " el " & FORMAT(MAX(resumen_ia[generado_en]), "dd/mm/yyyy hh:nn") '
      '& " · corte " & FORMAT(MAX(resumen_ia[fecha_corte]), "dd/mm/yyyy"))', "", "7. Resumen IA",
      "Modelo y fecha del último resumen generado con IA."),
@@ -468,7 +468,7 @@ def reporte():
     p = Pagina("ReportSection05", "Resumen IA")
     p.texto(10, 5, 1260, 50, [("Resumen ejecutivo generado con IA", 20, True)])
     p.texto(10, 55, 1260, 45, [("Narrativa generada con IA (Google Gemini por defecto) a partir de los KPIs agregados "
-                                "del data mart (Punto_Opcional_IA/resumen_ia.py). Revise las cifras contra las páginas "
+                                "del data mart (etl/resumen_ia.py). Revise las cifras contra las páginas "
                                 "anteriores antes de usarla.", 10, False)])
     p.tarjeta(10, 100, 1260, 60, "IA generado", "Origen")
     p.visual("tableEx", 10, 170, 1260, 540,

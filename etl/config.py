@@ -15,8 +15,7 @@ CONTRASENA = ""                                 # contraseña de ese usuario
 DRIVER = "ODBC Driver 18 for SQL Server"        # o "ODBC Driver 17 for SQL Server"
 # =======================================================================================
 
-PARTE1 = Path(__file__).resolve().parent.parent        # carpeta Parte1_ETL_PowerBI/
-RAIZ = PARTE1.parent                                 # carpeta raíz del proyecto
+RAIZ = Path(__file__).resolve().parent.parent          # carpeta raíz del proyecto
 # Excel suministrados: por defecto en RAIZ/datos/ (ver Instructivo_de_uso.txt, paso 2);
 # se puede usar otra carpeta con la variable de entorno PT_DATOS
 DATOS = Path(os.getenv("PT_DATOS", RAIZ / "datos"))
@@ -32,9 +31,9 @@ SQL_PASSWORD = os.getenv("PT_SQL_PASSWORD", CONTRASENA)
 ARCHIVO_BASES = Path(os.getenv("PT_ARCHIVO_BASES", DATOS / "Bases_Cobranza.xlsx"))   # bases 2, 3 y 4
 
 # Flujo diario del Reporte1: se dejan los archivos en ENTRADA y se mueven a PROCESADOS
-ENTRADA_REPORTE1 = Path(os.getenv("PT_ENTRADA_REPORTE1", PARTE1 / "Punto2_ETL_Reporte1" / "entrada" / "reporte1"))
-PROCESADOS = Path(os.getenv("PT_PROCESADOS", PARTE1 / "Punto2_ETL_Reporte1" / "procesados"))
-LOGS = PARTE1 / "logs"
+ENTRADA_REPORTE1 = Path(os.getenv("PT_ENTRADA_REPORTE1", RAIZ / "entrada" / "reporte1"))
+PROCESADOS = Path(os.getenv("PT_PROCESADOS", RAIZ / "procesados"))
+LOGS = RAIZ / "logs"
 
 # Reglas de negocio
 ORIGENES_NO_EFECTIVOS = {"Ajuste", "Otros", "Otros sin información"}   # indicado en la hoja Recaudo

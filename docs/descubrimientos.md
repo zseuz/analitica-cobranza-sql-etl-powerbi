@@ -105,8 +105,8 @@ La cobertura es casi idéntica en todos los tramos. La asignación parece aleato
 
 | Carpeta | Contenido |
 |---|---|
-| `1_Parte1_ETL` | `sql/01_modelo.sql` (modelo relacional), `sql/02_mart.sql` (tablas finales), `etl/*.py` (carga de las 4 bases, ETL diario del Reporte1, limpieza, data mart y resumen con IA), `run_reporte1.bat` y `programar_tarea.ps1` (ejecución diaria automática) |
-| `2_Parte2_Vistas` | `03_vistas_promesas.sql` (vistas creadas en el esquema `seg` de la base `AnaliticaCobranza`) |
-| `3_Dashboard` | `Dashboard_Cobranza.pbix` |
-| `4_Parte3_Analisis` | `Parte3_Analisis_Script_SQL.docx` (incluye la propuesta optimizada como anexo) |
-| `5_Descubrimientos` | `Descubrimientos.docx` (este documento) |
+| `sql/` | `01_modelo_relacional.sql` (modelo relacional), `02_tablas_data_mart.sql` (tablas finales), `03_vistas_promesas.sql` (vistas del esquema `seg` de la base `AnaliticaCobranza`) y `04_consulta_optimizada.sql` (propuesta de reestructuración del script revisado) |
+| `etl/` | carga de las 4 bases, ETL diario del Reporte1, limpieza, data mart y resumen con IA |
+| `scripts/` | `ejecutar_etl_diario.bat` y `programar_tarea_diaria.ps1` (ejecución diaria automática) |
+| `powerbi/` | proyecto `Dashboard_Cobranza.pbip` |
+| `docs/` | `Analisis_Script_SQL.docx`, `Descubrimientos.docx` (este documento), `Resumen_IA.docx` y `kpis.md` |

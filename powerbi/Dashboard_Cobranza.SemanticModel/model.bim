@@ -1268,7 +1268,7 @@
           },
           {
             "name": "IA generado",
-            "expression": "IF(ISEMPTY(resumen_ia), \"Sin resumen: ejecute python -m Punto_Opcional_IA.resumen_ia\", \"Generado por \" & MAX(resumen_ia[modelo]) & \" el \" & FORMAT(MAX(resumen_ia[generado_en]), \"dd/mm/yyyy hh:nn\") & \" · corte \" & FORMAT(MAX(resumen_ia[fecha_corte]), \"dd/mm/yyyy\"))",
+            "expression": "IF(ISEMPTY(resumen_ia), \"Sin resumen: ejecute python -m etl.resumen_ia\", \"Generado por \" & MAX(resumen_ia[modelo]) & \" el \" & FORMAT(MAX(resumen_ia[generado_en]), \"dd/mm/yyyy hh:nn\") & \" · corte \" & FORMAT(MAX(resumen_ia[fecha_corte]), \"dd/mm/yyyy\"))",
             "formatString": "",
             "displayFolder": "7. Resumen IA",
             "description": "Modelo y fecha del último resumen generado con IA."

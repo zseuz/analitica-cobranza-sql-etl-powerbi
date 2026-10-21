@@ -14,8 +14,8 @@ y las reescribe en SQL Server en una sola transacción (idempotente: siempre mis
   mart.fact_cartera_mes  1 fila por crédito-mes (Base 3) con su gestión y recaudo del mes
   mart.fact_recaudo      1 fila por pago con origen, efectivo/reversión y gestión previa
 
-Se ejecuta solo al terminar etl_reporte1 y cargar_bases_2_3_4, o a mano (desde la carpeta raíz del proyecto):
-  python -m Parte1_ETL_PowerBI.Punto3_Procesamiento_Datos.data_mart
+Se ejecuta solo al terminar etl_reporte1 y cargar_bases, o a mano (desde la carpeta raíz del proyecto):
+  python -m etl.data_mart
 """
 import logging
 import sys
@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 from sqlalchemy import text
 
-from ..Utilidades_Conexion import config
+from . import config
 
 log = logging.getLogger("data_mart")
 
@@ -252,7 +252,7 @@ COLUMNAS = {
 
 
 def construir(eng):
-    from ..Utilidades_Conexion.db import insertar
+    from .db import insertar
 
     with eng.connect() as cn:
         gest, sms, rec, car, cred, cal = leer_dw(cn)
@@ -283,8 +283,8 @@ def construir(eng):
 
 
 if __name__ == "__main__":
-    from ..Utilidades_Conexion.db import motor
-    from ..Punto2_ETL_Reporte1.etl_reporte1 import configurar_log
+    from .db import motor
+    from .etl_reporte1 import configurar_log
     configurar_log()
     construir(motor())
     sys.exit(0)

@@ -1,6 +1,6 @@
 """Parte 1, punto 2 – ETL diario del Reporte1 (gestiones de cobro por SMS).
 
-Flujo por cada archivo que llega a  Punto2_ETL_Reporte1/entrada/reporte1/  (.xlsx o .csv):
+Flujo por cada archivo que llega a  entrada/reporte1/  (.xlsx o .csv):
 
   1. CONTROL      SHA-256 del archivo. Si ese mismo contenido ya se cargó OK, se omite
                   (re-envíos o ejecuciones repetidas no duplican el volumen de gestiones).
@@ -18,11 +18,11 @@ Flujo por cada archivo que llega a  Punto2_ETL_Reporte1/entrada/reporte1/  (.xls
                   se mueve el archivo a procesados/ y se refresca el data mart.
 
 Uso (desde la carpeta raíz del proyecto):
-  python -m Parte1_ETL_PowerBI.Punto2_ETL_Reporte1.etl_reporte1                      # procesa la carpeta de entrada
-  python -m Parte1_ETL_PowerBI.Punto2_ETL_Reporte1.etl_reporte1 ruta\\archivo.xlsx   # procesa archivos puntuales
-  python -m Parte1_ETL_PowerBI.Punto2_ETL_Reporte1.etl_reporte1 --validar ...        # prueba sin cargar nada: deja las filas válidas y
+  python -m etl.etl_reporte1                      # procesa la carpeta de entrada
+  python -m etl.etl_reporte1 ruta\\archivo.xlsx   # procesa archivos puntuales
+  python -m etl.etl_reporte1 --validar ...        # prueba sin cargar nada: deja las filas válidas y
                                                                                      # las rechazadas (con motivo) en CSV en logs/
-  python -m Parte1_ETL_PowerBI.Punto2_ETL_Reporte1.etl_reporte1 --forzar ...         # recarga aunque el hash ya exista
+  python -m etl.etl_reporte1 --forzar ...         # recarga aunque el hash ya exista
 """
 import argparse
 import hashlib
@@ -36,8 +36,8 @@ from pathlib import Path
 import pandas as pd
 from sqlalchemy import text
 
-from ..Utilidades_Conexion import config
-from ..Punto3_Procesamiento_Datos import limpieza as L
+from . import config
+from . import limpieza as L
 
 FUENTE = "REPORTE1"
 COLUMNAS_OBLIGATORIAS = [
@@ -205,7 +205,7 @@ def _actualizar_control(eng, archivo_id, **campos):
 
 
 def cargar(eng, ruta, forzar=False):
-    from ..Utilidades_Conexion.db import insertar   # import diferido: --validar funciona sin driver ODBC
+    from .db import insertar   # import diferido: --validar funciona sin driver ODBC
 
     sha = hash_archivo(ruta)
     with eng.begin() as cn:
@@ -263,7 +263,7 @@ def mover_a_procesados(ruta):
 
 def refrescar_mart(eng):
     """Reconstruye las tablas finales del dashboard (Parte 1, punto 3) en Python."""
-    from ..Punto3_Procesamiento_Datos.data_mart import construir
+    from .data_mart import construir
     construir(eng)
     log.info("Data mart refrescado.")
 
@@ -308,7 +308,7 @@ def main(argv=None):
                 log.info("[validar] motivos: %s", rechazos["motivo"].value_counts().to_dict())
         return 0
 
-    from ..Utilidades_Conexion.db import motor
+    from .db import motor
     eng = motor()
     errores, cargados = 0, 0
     for ruta in archivos:

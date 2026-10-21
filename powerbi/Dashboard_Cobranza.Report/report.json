@@ -708,7 +708,7 @@
           "z": 2,
           "width": 1260,
           "height": 45,
-          "config": "{\"name\": \"242e62eba0b347b6aa38\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 55, \"z\": 2, \"width\": 1260, \"height\": 45}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Narrativa generada con IA (Google Gemini por defecto) a partir de los KPIs agregados del data mart (Punto_Opcional_IA/resumen_ia.py). Revise las cifras contra las páginas anteriores antes de usarla.\", \"textStyle\": {\"fontSize\": \"10pt\"}}]}]}}]}}}",
+          "config": "{\"name\": \"242e62eba0b347b6aa38\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 55, \"z\": 2, \"width\": 1260, \"height\": 45}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Narrativa generada con IA (Google Gemini por defecto) a partir de los KPIs agregados del data mart (etl/resumen_ia.py). Revise las cifras contra las páginas anteriores antes de usarla.\", \"textStyle\": {\"fontSize\": \"10pt\"}}]}]}}]}}}",
           "filters": "[]"
         },
         {

@@ -7,11 +7,11 @@
 Son cargas COMPLETAS e idempotentes: en una sola transacción se borran los hechos de
 estas fuentes y se vuelven a insertar, así que ejecutar el proceso N veces deja siempre
 el mismo resultado. Las filas descartadas quedan en etl.rechazo con su motivo.
-(La Base 1 – Reporte1 – tiene su propio ETL incremental: Punto2_ETL_Reporte1/etl_reporte1.py)
+(La Base 1 – Reporte1 – tiene su propio ETL incremental: etl/etl_reporte1.py)
 
 Uso (desde la carpeta raíz del proyecto):
-  python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.cargar_bases_2_3_4             # limpia y carga las 3 bases en SQL Server
-  python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.cargar_bases_2_3_4 --validar   # prueba sin cargar nada: aplica la
+  python -m etl.cargar_bases             # limpia y carga las 3 bases en SQL Server
+  python -m etl.cargar_bases --validar   # prueba sin cargar nada: aplica la
                                                                                       # limpieza y muestra cuántas filas se
                                                                                       # cargarían y cuántas se descartarían
                                                                                       # (con el motivo)
@@ -26,11 +26,11 @@ import numpy as np
 import pandas as pd
 from sqlalchemy import text
 
-from ..Utilidades_Conexion import config
-from ..Punto3_Procesamiento_Datos import limpieza as L
-from ..Punto2_ETL_Reporte1.etl_reporte1 import configurar_log, hash_archivo, refrescar_mart
+from . import config
+from . import limpieza as L
+from .etl_reporte1 import configurar_log, hash_archivo, refrescar_mart
 
-log = logging.getLogger("cargar_bases_2_3_4")
+log = logging.getLogger("cargar_bases")
 
 
 # --------------------------------------------------------------------------- utilidades
@@ -182,7 +182,7 @@ def transformar_gestiones():
 
 # --------------------------------------------------------------------------- carga
 def cargar(eng, comite, recaudo, gestiones, rechazos, leidas):
-    from ..Utilidades_Conexion.db import insertar
+    from .db import insertar
 
     sha = hash_archivo(config.ARCHIVO_BASES)
     with eng.begin() as cn:
@@ -274,7 +274,7 @@ def main(argv=None):
     if a.validar:
         return 0
 
-    from ..Utilidades_Conexion.db import motor
+    from .db import motor
     rechazos = pd.concat([r[1] for r in resultados.values()], ignore_index=True)
     eng = motor()
     cargar(eng, resultados["COMITE"][0], resultados["RECAUDO"][0], resultados["GESTIONES"][0],

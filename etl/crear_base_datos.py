@@ -1,17 +1,17 @@
 """Crea (o actualiza) la base AnaliticaCobranza ejecutando los scripts SQL del proyecto en orden.
 
 Uso (desde la carpeta raíz del proyecto):
-  python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.crear_base_datos
+  python -m etl.crear_base_datos
 """
 from sqlalchemy import text
 
-from ..Utilidades_Conexion import config
-from ..Utilidades_Conexion.db import ejecutar_script, motor
+from . import config
+from .db import ejecutar_script, motor
 
 SCRIPTS = [
-    config.PARTE1 / "Punto1_Carga_SQL_Server" / "01_modelo_relacional.sql",      # Parte 1.1 – modelo relacional
-    config.PARTE1 / "Punto3_Procesamiento_Datos" / "02_tablas_data_mart.sql",    # Parte 1.3 – tablas del data mart
-    config.RAIZ / "Parte2_Vistas_Promesas" / "03_vistas_promesas.sql",        # Parte 2   – vistas de promesas
+    config.RAIZ / "sql" / "01_modelo_relacional.sql",      # modelo relacional
+    config.RAIZ / "sql" / "02_tablas_data_mart.sql",       # tablas del data mart
+    config.RAIZ / "sql" / "03_vistas_promesas.sql",        # vistas de promesas
 ]
 
 
@@ -28,7 +28,7 @@ def main():
     with eng.connect() as cn:
         hay_datos = cn.execute(text("SELECT COUNT(*) FROM dw.dim_credito")).scalar()
     if hay_datos:
-        from ..Punto3_Procesamiento_Datos.data_mart import construir
+        from .data_mart import construir
         construir(eng)
         print("OK  data mart reconstruido")
 

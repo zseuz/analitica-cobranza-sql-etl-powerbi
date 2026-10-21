@@ -8,9 +8,9 @@ datos/*
 *.zip
 
 # Carpetas que genera el ETL al ejecutarse
-Parte1_ETL_PowerBI/logs/
-Parte1_ETL_PowerBI/Punto2_ETL_Reporte1/entrada/
-Parte1_ETL_PowerBI/Punto2_ETL_Reporte1/procesados/
+logs/
+entrada/
+procesados/
 
 # Power BI (archivos locales del proyecto PBIP)
 **/.pbi/localSettings.json

@@ -68,11 +68,11 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
 
  Si su SQL Server exige usuario y contraseña, o no se llama localhost,
  escríbalos en el archivo
-    Parte1_ETL_PowerBI\Utilidades_Conexion\config.py
+    etl\config.py
  (bloque "EDITE AQUÍ"). Ver "CAMBIAR LOS DATOS DE CONEXIÓN", al final.
 
  Cree la base:
-    python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.crear_base_datos
+    python -m etl.crear_base_datos
 
  Debe ver:
     OK  01_modelo_relacional.sql
@@ -89,7 +89,7 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
 ---------------------------------------------------------------------
  PASO 6. Cargue las bases 2, 3 y 4 (Recaudo, Comité y Gestiones)
 ---------------------------------------------------------------------
-    python -m Parte1_ETL_PowerBI.Punto1_Carga_SQL_Server.cargar_bases_2_3_4
+    python -m etl.cargar_bases
 
  Tarda alrededor de 1 minuto. Al final debe ver:
     Data mart refrescado.
@@ -98,7 +98,7 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
 ---------------------------------------------------------------------
  PASO 7. Cargue el Reporte1 (base 1) con el ETL diario
 ---------------------------------------------------------------------
-    Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\ejecutar_etl_diario.bat "datos\base 2.xlsx"
+    scripts\ejecutar_etl_diario.bat "datos\base 2.xlsx"
 
  Debe ver:
     base 2.xlsx -> leídas 7438 | rechazadas 0 | duplicadas 0 | insertadas 7438
@@ -113,7 +113,7 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
 
 
 ---------------------------------------------------------------------
- PASO 8. Consulte las vistas de promesas (Parte 2)
+ PASO 8. Consulte las vistas de promesas
 ---------------------------------------------------------------------
  Abra SSMS y conéctese con:
     Servidor:       localhost
@@ -135,18 +135,18 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
 
 
 ---------------------------------------------------------------------
- PASO 9. Abra el dashboard (Parte 1, punto 4)
+ PASO 9. Abra el dashboard
 ---------------------------------------------------------------------
  El .pbix no se publica porque guarda una copia de los datos. En su
  lugar se incluye el proyecto de Power BI en formato de texto (PBIP).
  1. Abra con doble clic:
-    Parte1_ETL_PowerBI\Punto4_KPIs_Dashboard\Dashboard_Cobranza.pbip
+    powerbi\Dashboard_Cobranza.pbip
  2. Haga clic en  Inicio > Actualizar  (carga los datos desde SQL Server).
  3. Si pide credenciales, elija  Windows > Usar mis credenciales actuales.
  4. Opcional: Archivo > Guardar como > Dashboard_Cobranza.pbix
 
  El proyecto se puede regenerar con:
-    python -m Parte1_ETL_PowerBI.Punto4_KPIs_Dashboard.generar_pbip
+    python -m powerbi.generar_pbip
 
 
 =====================================================================
@@ -156,24 +156,24 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
  A) Programar la carga diaria del Reporte1
     Ejecute (una sola vez):
 
-    powershell -ExecutionPolicy Bypass -File Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\programar_tarea_diaria.ps1 -Hora 06:00
+    powershell -ExecutionPolicy Bypass -File scripts\programar_tarea_diaria.ps1 -Hora 06:00
 
     Desde ese momento, cada Reporte1 nuevo que deje en
-    Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\entrada\reporte1\
+    entrada\reporte1\
     se carga solo todos los días a las 06:00, y después se mueve a la
     carpeta procesados.
 
     La carpeta entrada\reporte1 no viene en el repositorio: el ETL la crea
     solo la primera vez que se ejecuta. Si quiere dejar un archivo antes
     de eso, ejecute una vez
-       Parte1_ETL_PowerBI\Punto2_ETL_Reporte1\ejecutar_etl_diario.bat
+       scripts\ejecutar_etl_diario.bat
     (sin parámetros) o cree la carpeta a mano.
 
  B) Resumen ejecutivo con IA (página "Resumen IA" del dashboard)
     1. Cree una clave gratuita en https://aistudio.google.com
     2. Guárdela:   setx GEMINI_API_KEY "su-clave"
     3. Cierre la consola, abra una nueva en la carpeta raíz (paso 3) y ejecute:
-          python -m Punto_Opcional_IA.resumen_ia
+          python -m etl.resumen_ia
     4. En Power BI haga clic en Actualizar.
 
 
@@ -185,7 +185,7 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
 
  a) Editando un archivo (la más simple)
     Abra con el Bloc de notas:
-       Parte1_ETL_PowerBI\Utilidades_Conexion\config.py
+       etl\config.py
     y cambie las líneas del bloque "DATOS DE CONEXIÓN: EDITE AQUÍ":
 
        SERVIDOR = "localhost"
@@ -238,7 +238,7 @@ Siga los pasos en orden. Tiempo aproximado: 10 minutos
     Instale el ODBC Driver 18 (paso 1). Si tiene el 17, ejecute:
        set PT_SQL_DRIVER=ODBC Driver 17 for SQL Server
 
- "No module named Parte1_ETL_PowerBI"
+ "No module named etl"
     La consola no está en la carpeta raíz del proyecto. Repita el paso 3.
 
  "No module named pandas" (u otra librería)

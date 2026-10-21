@@ -3,7 +3,7 @@
    ---------------------------------------------------------------------
    Este script SOLO define las tablas finales que consume el dashboard.
    Toda la lógica que las llena (unificación de canales, cumplimiento de
-   promesas, cobertura, etc.) está en Python:  Punto3_Procesamiento_Datos/data_mart.py
+   promesas, cobertura, etc.) está en Python:  etl/data_mart.py
    Las tablas son derivadas: se pueden borrar y reconstruir en cualquier momento.
    ===================================================================== */
 USE AnaliticaCobranza;
@@ -143,7 +143,7 @@ GO
 
 /* ---------------------------------------------------------------------
    Punto opcional (IA): resumen ejecutivo generado con IA (Gemini por defecto
-   o Claude) por Punto_Opcional_IA/resumen_ia.py. No se borra al recrear el mart:
+   o Claude) por etl/resumen_ia.py. No se borra al recrear el mart:
    guarda el último resumen generado, que el dashboard muestra en la página "Resumen IA".
    --------------------------------------------------------------------- */
 IF OBJECT_ID('mart.resumen_ia') IS NULL
